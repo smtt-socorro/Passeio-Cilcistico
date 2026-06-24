@@ -1,0 +1,54 @@
+services:
+  db:
+    networks:
+      smtt_internal:
+        aliases:
+          - smtt-pgsql
+
+  migrate:
+    profiles: ["runtime"]
+    image: postgres:17-alpine
+    environment:
+      DB_HOST: smtt-pgsql
+      DB_PORT: 5432
+      DB_NAME: ${POSTGRES_DB:-smtt}
+      DB_USER: ${POSTGRES_USER:-smtt}
+      DB_PASS: ${POSTGRES_PASSWORD:-changeme}
+    volumes:
+      - ./database/init:/migrations:ro
+      - ./docker/migrate.sh:/migrate.sh:ro
+    entrypoint: ["/bin/sh", "/migrate.sh"]
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - smtt_internal
+
+  app:
+    profiles: ["runtime"]
+    image: ${SMTT_APP_IMAGE:-wendellsales/bikesmtt:latest}
+    environment:
+      DB_HOST: smtt-pgsql
+      DB_PORT: 5432
+      DB_NAME: ${POSTGRES_DB:-smtt}
+      DB_USER: ${POSTGRES_USER:-smtt}
+      DB_PASS: ${POSTGRES_PASSWORD:-changeme}
+      APP_DOMAIN: ${APP_DOMAIN}
+      DEPLOY_SALT: ${DEPLOY_SALT}
+      DEPLOY_CHECKSUM: ${DEPLOY_CHECKSUM}
+      DEBUG_MODE: "false"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    networks:
+      - smtt_internal
+      - default
+
+volumes:
+  pgdata:
+    name: smtt_pgdata_${DEPLOY_ID}
+    external: true
+
+networks:
+  smtt_internal:
+    internal: true

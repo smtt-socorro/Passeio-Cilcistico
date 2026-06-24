@@ -1,0 +1,1 @@
+# Passeio Ciclístico de Nossa Senhora do Socorro.

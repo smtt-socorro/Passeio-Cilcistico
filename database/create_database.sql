@@ -1,0 +1,2 @@
+-- Schema PostgreSQL — use os arquivos em database/init/
+-- 01_schema_public.sql, 02_functions.sql, 03_triggers.sql, 04_admin_seed.sql

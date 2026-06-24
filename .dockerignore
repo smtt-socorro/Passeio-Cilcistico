@@ -1,0 +1,9 @@
+.git
+.gitignore
+.env
+.env.deploy
+backups/*
+*.md
+docker-compose.dev.yml
+compose.deploy.yml
+scripts/generate-deploy-env.sh

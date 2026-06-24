@@ -1,0 +1,556 @@
+/* CSS para Página de Impressão de Certificados */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.page-title-section {
+  flex: 1;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  color: #4a5568;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.page-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.btn-back {
+  background: var(--white);
+  color: #4a90e2;
+  border: 2px solid #4a90e2;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  background: #4a90e2;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.search-area {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  margin-bottom: 40px;
+}
+
+.search-form-container {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.search-form-container label {
+  display: block;
+  font-weight: 600;
+  color: #1a202c;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.search-input-wrapper {
+  position: relative;
+}
+
+.search-input-wrapper .search-icon-input {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 1.1rem;
+}
+
+#buscaParticipante {
+  width: 100%;
+  padding: 16px 20px 16px 50px; /* Espaço para ícone */
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+  color: #1a202c;
+}
+
+#buscaParticipante:focus {
+  outline: none;
+  border-color: #4a90e2;
+  background: var(--white);
+  box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+}
+
+.suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border: 1px solid #e2e8f0;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.suggestions-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.suggestions-list li {
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.suggestions-list li:last-child {
+  border-bottom: none;
+}
+
+.suggestions-list li:hover {
+  background-color: #e8f2ff;
+}
+
+.suggestions-list li strong {
+  color: #1a202c;
+}
+
+.suggestions-list li small {
+  color: #6b7280;
+  display: block;
+  font-size: 0.9rem;
+}
+
+.certificate-action-area {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.certificate-preview-wrapper {
+  margin-bottom: 30px;
+  border: 2px dashed #4a90e2;
+  padding: 20px;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.certificate-preview-wrapper h3 {
+  font-size: 1.3rem;
+  color: #1a202c;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.certificate-a4-horizontal {
+  width: 297mm;
+  height: 210mm;
+  padding: 20mm;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  margin: 0 auto; /* Centraliza na pré-visualização */
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  color: #333;
+  /* Para melhor visualização, escalonar um pouco */
+  transform: scale(0.25);
+  transform-origin: top center;
+  margin-bottom: -490px; /* Ajustar de acordo com a escala */
+}
+
+.certificate-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30mm;
+}
+
+.certificate-logo {
+  max-width: 150px;
+  max-height: 80px;
+  margin-bottom: 15mm;
+}
+
+.certificate-header h2 {
+  font-size: 32pt;
+  font-weight: bold;
+  color: #003366; /* Azul escuro SMTT */
+  margin-bottom: 10mm;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.certificate-body {
+  font-size: 18pt;
+  line-height: 1.6;
+  margin-bottom: 30mm;
+}
+
+.certificate-body p {
+  margin-bottom: 8mm;
+}
+
+.participant-name {
+  font-size: 24pt;
+  font-weight: bold;
+  color: #0056b3; /* Azul SMTT */
+  margin: 10mm 0;
+  border-bottom: 2px solid #0056b3;
+  display: inline-block;
+  padding-bottom: 2mm;
+}
+
+.event-name {
+  font-size: 20pt;
+  font-style: italic;
+  color: #004085;
+}
+
+.certificate-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  font-size: 14pt;
+  margin-top: 20mm;
+}
+
+.signature-line {
+  text-align: center;
+}
+
+.signature-line p {
+  margin: 0;
+}
+
+.event-date-footer {
+  text-align: center;
+}
+
+.btn-print-lg {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  padding: 16px 32px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+}
+
+.btn-print-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+}
+
+.certificate-empty {
+  border: 2px dashed #e2e8f0;
+  background: #f8fafc;
+}
+
+/* Estilos de Impressão */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .certificate-print-area,
+  .certificate-print-area * {
+    visibility: visible;
+  }
+  .certificate-print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .certificate-a4-horizontal {
+    transform: scale(1); /* Tamanho real na impressão */
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    width: 297mm;
+    height: 210mm;
+  }
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .certificate-a4-horizontal {
+    transform: scale(0.2);
+    margin-bottom: -520px; /* Ajustar */
+  }
+
+  .search-area,
+  .certificate-action-area {
+    padding: 20px;
+  }
+}
+
+.certificate-a4-horizontal.card-design {
+  width: 297mm; /* A4 Landscape */
+  height: 210mm; /* A4 Landscape */
+  padding: 15mm; /* Margem interna */
+  box-sizing: border-box;
+  border: 1px solid #e0e0e0; /* Borda sutil para pré-visualização */
+  margin: 0 auto; /* Centraliza na pré-visualização */
+  background: #ffffff; /* Fundo branco */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Empurra o rodapé para baixo */
+  align-items: center;
+  font-family: "Arial", sans-serif; /* Fonte limpa, similar à imagem */
+  color: #0d47a1; /* Azul escuro predominante, similar ao 'B' da imagem */
+
+  /* Para melhor visualização, escalonar um pouco na tela */
+  transform: scale(0.25); /* Ajuste conforme necessário */
+  transform-origin: top center;
+  margin-bottom: -500px; /* Compensar a escala para layout da página */
+  /* Este valor pode precisar de ajuste fino */
+}
+
+.card-main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.card-participant-name {
+  font-size: 32pt; /* Tamanho grande para o nome */
+  font-weight: bold;
+  margin-bottom: 20mm; /* Espaço entre nome e ID */
+  color: #333333; /* Cor mais escura para o nome para contraste */
+  text-transform: uppercase;
+}
+
+.card-registration-id {
+  font-size: 150pt; /* Tamanho MUITO grande para o ID */
+  font-weight: bold;
+  line-height: 1;
+  display: flex;
+  align-items: baseline; /* Alinha 'B' com a base dos números */
+  margin-bottom: 15mm;
+}
+
+.card-registration-id .id-prefix {
+  font-size: 148pt; /* 'B' um pouco menor */
+  margin-right: 2mm;
+  color: #0d47a1; /* Azul SMTT */
+}
+
+.card-registration-id .id-number {
+  letter-spacing: -2px; /* Ajuste fino do espaçamento dos números */
+  color: #0d47a1; /* Azul SMTT */
+}
+
+.card-event-details {
+  font-size: 16pt;
+  color: #555555;
+  line-height: 1.5;
+}
+
+.card-event-details p {
+  margin: 2mm 0;
+}
+
+.card-footer {
+  width: 100%;
+  height: 30mm; /* Altura da barra azul do rodapé */
+  background-color: #0d47a1; /* Azul SMTT - Cor da barra na imagem */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 10mm;
+  box-sizing: border-box;
+  margin-top: auto; /* Garante que o rodapé fique na parte inferior */
+}
+
+.footer-logo {
+  max-height: 20mm; /* Altura máxima dos logos dentro da barra */
+  max-width: 60mm; /* Largura máxima para evitar que fiquem muito grandes */
+  object-fit: contain; /* Garante que o logo não seja distorcido */
+}
+
+.certificate-a4-horizontal.card-design {
+  width: 297mm; /* A4 Landscape */
+  height: 210mm; /* A4 Landscape */
+  padding: 15mm; /* Margem interna */
+  box-sizing: border-box;
+  border: 1px solid #e0e0e0; /* Borda sutil para pré-visualização */
+  margin: 0 auto; /* Centraliza na pré-visualização */
+  background: #ffffff; /* Fundo branco */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Empurra o rodapé para baixo */
+  align-items: center;
+  font-family: "Arial", sans-serif;
+  color: #0d47a1;
+
+  /* Para melhor visualização, escalonar um pouco na tela */
+  transform: scale(0.25);
+  transform-origin: top center;
+  margin-bottom: -500px;
+}
+
+.card-main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* REMOVIDO: .card-participant-name e .card-event-details */
+
+.card-registration-id {
+  font-size: 150pt; /* Tamanho MUITO grande para o ID */
+  font-weight: bold;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 15mm;
+}
+
+.card-registration-id .id-prefix {
+  font-size: 148pt; /* 'B' um pouco menor */
+  margin-right: 2mm;
+  color: #0d47a1; /* Azul SMTT */
+}
+
+.card-registration-id .id-number {
+  letter-spacing: -2px;
+  color: #0d47a1; /* Azul SMTT */
+}
+
+.card-footer {
+  width: 100%;
+  height: 30mm;
+  background-color: #0d47a1 !important; /* IMPORTANTE: !important para impressão */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 10mm;
+  box-sizing: border-box;
+  margin-top: auto;
+  /* ADICIONADO: Garantir que apareça na impressão */
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+
+.footer-logo {
+  max-height: 20mm;
+  max-width: 60mm;
+  object-fit: contain;
+  /* ADICIONADO: Garantir que logos apareçam na impressão */
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+
+/* ATUALIZADO: Estilos de Impressão com correções para barra azul */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .certificate-print-area,
+  .certificate-print-area * {
+    visibility: visible !important;
+  }
+  .certificate-print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .certificate-a4-horizontal.card-design {
+    transform: scale(1) !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 297mm;
+    height: 210mm;
+  }
+
+  /* CRÍTICO: Forçar cores na impressão */
+  .card-footer {
+    background-color: #0d47a1 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  .footer-logo {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  @page {
+    size: A4 landscape;
+    margin: 0mm;
+    /* ADICIONADO: Configurações de cor para impressão */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}

@@ -1,0 +1,368 @@
+/* CSS Específico para Página de Termos - Baseado nas Imagens Kawruh */
+
+/* Reset e configurações base */
+.termos-page {
+    background: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.termos-hero {
+    padding: 80px 0 60px 0;
+    position: relative;
+    background: var(--white);
+}
+
+.termos-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+/* Header Get in Touch - Baseado nas imagens */
+.termos-header {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.termos-subtitle {
+    color: #ff6b35;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.termos-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.termos-description {
+    color: #4a5568;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Conteúdo dos Termos */
+.termos-content {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(74, 144, 226, 0.1);
+    margin-bottom: 40px;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+/* Seções dos termos */
+.termo-section {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(74, 144, 226, 0.1);
+}
+
+.termo-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.termo-section h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.termo-section h2 i {
+    color: #4a90e2;
+    font-size: 1.5rem;
+}
+
+.termo-section h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin: 25px 0 15px 0;
+}
+
+.termo-section p {
+    color: #4a5568;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-size: 1.05rem;
+}
+
+.termo-section ul {
+    margin: 16px 0;
+    padding-left: 25px;
+}
+
+.termo-section li {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+}
+
+.termo-section strong {
+    color: #1a202c;
+    font-weight: 600;
+}
+
+/* Destaque para informações importantes */
+.destaque-importante {
+    background: #fff9c4;
+    border: 2px solid #ffd700;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.destaque-importante h4 {
+    color: #b45309;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.destaque-importante p {
+    color: #92400e;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Destaque para informações de segurança */
+.destaque-seguranca {
+    background: #fef2f2;
+    border: 2px solid #fecaca;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.destaque-seguranca h4 {
+    color: #dc2626;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.destaque-seguranca p {
+    color: #7f1d1d;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Destaque para informações do evento */
+.destaque-evento {
+    background: #e8f2ff;
+    border: 2px solid #bfdbfe;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.destaque-evento h4 {
+    color: #1d4ed8;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.destaque-evento p {
+    color: #1e3a8a;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Botão voltar */
+.back-button {
+    background: var(--white);
+    color: #4a90e2;
+    border: 2px solid #4a90e2;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.back-button:hover {
+    background: #4a90e2;
+    color: var(--white);
+    transform: translateY(-2px);
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(74, 144, 226, 0.3);
+}
+
+/* Checkbox de aceitação */
+.aceite-termos {
+    background: #f8fafc;
+    border: 2px solid #4a90e2;
+    border-radius: 16px;
+    padding: 30px;
+    margin: 40px 0;
+    text-align: center;
+}
+
+.aceite-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.aceite-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.aceite-checkbox label {
+    color: #1a202c;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.aceite-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-aceitar {
+    background: linear-gradient(135deg, #10b981, #34d399);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 150px;
+    justify-content: center;
+}
+
+.btn-aceitar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+    color: var(--white);
+    text-decoration: none;
+}
+
+.btn-aceitar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Animações */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .termos-container {
+        padding: 0 15px;
+    }
+    
+    .termos-hero {
+        padding: 60px 0 40px 0;
+    }
+    
+    .termos-title {
+        font-size: 2.5rem;
+    }
+    
+    .termos-content {
+        padding: 30px 25px;
+    }
+    
+    .termo-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .aceite-checkbox {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .aceite-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-aceitar,
+    .back-button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .termos-title {
+        font-size: 2rem;
+    }
+    
+    .termo-section h2 {
+        font-size: 1.3rem;
+    }
+    
+    .termos-content {
+        padding: 25px 20px;
+    }
+}
+
+/* Estados de scroll */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
