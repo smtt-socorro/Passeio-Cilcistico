@@ -8,7 +8,7 @@ $admin_area = strpos($_SERVER['REQUEST_URI'], '/admin/') !== false;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Evento de Bicicleta - SMTT Socorro. Inscreva-se para participar do maior evento de ciclismo da região em 29/08/2025.">
+    <meta name="description" content="Evento de Bicicleta - SMTT Socorro. Inscreva-se para participar do maior evento de ciclismo da região em 29/08/2026.">
     <meta name="keywords" content="evento, bicicleta, ciclismo, socorro, sergipe, smtt">
     <meta name="author" content="SMTT Socorro">
     

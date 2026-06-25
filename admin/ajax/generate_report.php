@@ -73,8 +73,7 @@ try {
                 estado,
                 data_inscricao,
                 status,
-                YEAR(CURDATE()) - YEAR(data_nascimento) - 
-                (DATE_FORMAT(CURDATE(), '%m%d') < DATE_FORMAT(data_nascimento, '%m%d')) as idade
+                EXTRACT(YEAR FROM AGE(CURRENT_DATE, data_nascimento)) as idade
               FROM inscricoes 
               WHERE $where_clause 
               ORDER BY data_inscricao DESC";

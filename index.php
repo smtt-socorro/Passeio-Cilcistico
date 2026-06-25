@@ -22,7 +22,7 @@ include 'includes/header.php';
                 <div class="event-badge-icon">
                     <i class="fas fa-bicycle"></i>
                 </div>
-                Passeio ciclistico 2025
+                Passeio ciclistico 2026
             </div>
 
             <!-- Título principal -->
@@ -43,7 +43,7 @@ include 'includes/header.php';
                         <i class="fas fa-calendar-alt"></i>
                     </div>
                     <div class="event-info-title">Data do Evento</div>
-                    <div class="event-info-text">29 de Agosto de 2025<br>Concentração às 07:00h</div>
+                    <div class="event-info-text">29 de Agosto de 2026<br>Concentração às 07:00h</div>
                 </div>
 
                 <div class="event-info-card">

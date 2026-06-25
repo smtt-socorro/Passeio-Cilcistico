@@ -15,7 +15,7 @@ if ($_POST && isset($_POST['cpf'])) {
         $database = new Database();
         $conn = $database->getConnection();
         
-        $query = "SELECT COUNT(*) as total, GROUP_CONCAT(id_inscricao_formatado) as ids 
+        $query = "SELECT COUNT(*) as total, STRING_AGG(id_inscricao_formatado, ',') as ids 
                   FROM inscricoes 
                   WHERE cpf = :cpf AND status = 'ativa'";
         $stmt = $conn->prepare($query);

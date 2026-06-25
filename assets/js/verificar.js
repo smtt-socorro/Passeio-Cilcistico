@@ -227,7 +227,7 @@ function showResults(inscricoes) {
                                 <i class="fas fa-info-circle"></i> Informações Importantes
                             </h4>
                             <p style="margin: 0; color: #1a202c; line-height: 1.5;">
-                                <strong>Data do Evento:</strong> 29 de Agosto de 2025<br>
+                                <strong>Data do Evento:</strong> 29 de Agosto de 2026<br>
                                 <strong>Local:</strong> Orla de Nossa Senhora do Socorro - SE<br>
                                 <strong>Retirada do Material:</strong> SMTT de Socorro com CPF e ID de inscrição
                             </p>

@@ -29,7 +29,7 @@ include 'includes/header.php';
                     
                     <div class="destaque-evento">
                         <h4><i class="fas fa-info-circle"></i> Dados do Evento</h4>
-                        <p><strong>Data:</strong> 29 de Agosto de 2025<br>
+                        <p><strong>Data:</strong> 29 de Agosto de 2026<br>
                         <strong>Local:</strong> Nossa Senhora do Socorro - SE<br>
                         <strong>Concentração:</strong> 07:00h<br>
                         <strong>Retirada de Material:</strong> SMTT de Nossa Senhora do Socorro - SE</p>

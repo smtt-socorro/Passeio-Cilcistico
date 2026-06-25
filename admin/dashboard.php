@@ -3,7 +3,7 @@ session_start();
 require_once '../config/functions.php';
 
 // Verificar se está logado
-if (!isset($_SESSION['admin_logged']) || $_SESSION['admin_logged'] !== true) {
+if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
     header('Location: login.php');
     exit();
 }
@@ -25,7 +25,7 @@ $stmt = $conn->query($query);
 $metricas['inscricoes_hoje'] = $stmt->fetch()['total'];
 
 // CPFs com 2 inscrições
-$query = "SELECT cpf, COUNT(*) as total FROM inscricoes WHERE status = 'ativa' GROUP BY cpf HAVING total = 2";
+$query = "SELECT cpf, COUNT(*) as total FROM inscricoes WHERE status = 'ativa' GROUP BY cpf HAVING COUNT(*) = 2;
 $stmt = $conn->query($query);
 $metricas['cpfs_multiplos'] = $stmt->rowCount();
 
@@ -149,7 +149,7 @@ $ultimas_inscricoes = $stmt->fetchAll();
                 <div class="metric-icon" style="background: var(--primary-blue); color: var(--white);">
                     <i class="fas fa-calendar-alt"></i>
                 </div>
-                <div class="metric-value" style="font-size: 1.5rem;">29/08/2025</div>
+                <div class="metric-value" style="font-size: 1.5rem;">29/08/2026</div>
                 <div class="metric-label">Data do Evento</div>
             </div>
         </div>

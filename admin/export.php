@@ -3,7 +3,7 @@ session_start();
 require_once '../config/functions.php';
 
 // Verificar se está logado
-if (!isset($_SESSION['admin_logged']) || $_SESSION['admin_logged'] !== true) {
+if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
     header('Location: login.php');
     exit();
 }

@@ -14,7 +14,7 @@ function initMinimalIndex() {
 
 // Contador regressivo
 function initCountdown() {
-    const eventDate = new Date('2025-08-29T07:00:00');
+    const eventDate = new Date('2026-08-29T07:00:00');
     
     function updateCountdown() {
         const now = new Date();

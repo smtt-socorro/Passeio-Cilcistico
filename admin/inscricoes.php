@@ -3,7 +3,7 @@ session_start();
 require_once '../config/functions.php';
 
 // Verificar se está logado
-if (!isset($_SESSION['admin_logged']) || $_SESSION['admin_logged'] !== true) {
+if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
     header('Location: login.php');
     exit();
 }
@@ -49,7 +49,7 @@ $total_records = $count_stmt->fetch()['total'];
 $total_pages = ceil($total_records / $per_page);
 
 // Buscar inscrições
-$query = "SELECT * FROM inscricoes WHERE $where_clause ORDER BY data_inscricao DESC LIMIT :offset, :per_page";
+$query = "SELECT * FROM inscricoes WHERE $where_clause ORDER BY data_inscricao DESC LIMIT :per_page OFFSET :offset";
 $stmt = $conn->prepare($query);
 foreach ($params as $key => $value) {
     $stmt->bindValue($key, $value);

@@ -9,7 +9,7 @@ services:
       - "${POSTGRES_PORT:-5433}:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
-      - ./database/init/01_schema_public.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./database/init:/docker-entrypoint-initdb.d:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
       interval: 5s
@@ -19,16 +19,20 @@ services:
 
   app:
     profiles: ["runtime"]
-    image: ${SMTT_APP_IMAGE:-wendellsales/bikesmtt:latest}
+    build: .
+    image: bikesmtt-local
     ports:
-      - "${APP_PORT:-8080}:80"
+      - "${APP_PORT:-8081}:80"
+    volumes:
+    - ./:/var/www/html
     environment:
       DB_HOST: db
       DB_PORT: 5432
       DB_NAME: ${POSTGRES_DB:-smtt}
       DB_USER: ${POSTGRES_USER:-smtt}
       DB_PASS: ${POSTGRES_PASSWORD:-changeme}
-      DEBUG_MODE: ${DEBUG_MODE:-false}
+      DEBUG_MODE: "true"
+      SKIP_DEPLOY_CHECK: "true"
     depends_on:
       db:
         condition: service_healthy

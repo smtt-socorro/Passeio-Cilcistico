@@ -55,7 +55,7 @@ if ($_POST) {
             $database = new Database();
             $conn = $database->getConnection();
             
-            $query = "SELECT COUNT(*) as total, GROUP_CONCAT(id_inscricao_formatado) as ids FROM inscricoes WHERE cpf = :cpf AND status = 'ativa'";
+            $query = "SELECT COUNT(*) as total, STRING_AGG(id_inscricao_formatado, ',') as ids FROM inscricoes WHERE cpf = :cpf AND status = 'ativa'";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':cpf', $cpf);
             $stmt->execute();
@@ -352,7 +352,7 @@ include 'includes/header.php';
                         <ul style="list-style: none; padding: 0; margin: 0;">
                             <li style="color: var(--gray-dark); margin-bottom: 8px; padding-left: 20px; position: relative;">
                                 <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
-                                <strong>Data:</strong> 29 de Agosto de 2025
+                                <strong>Data:</strong> 29 de Agosto de 2026
                             </li>
                             <li style="color: var(--gray-dark); margin-bottom: 8px; padding-left: 20px; position: relative;">
                                 <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>

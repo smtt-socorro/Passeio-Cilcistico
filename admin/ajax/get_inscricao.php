@@ -141,7 +141,7 @@ try {
                         <div class='detail-grid'>
                             <div class='detail-item'>
                                 <label>Data do Evento</label>
-                                <span>🗓️ 29 de Agosto de 2025</span>
+                                <span>🗓️ 29 de Agosto de 2026</span>
                             </div>
                             <div class='detail-item'>
                                 <label>Local Principal</label>

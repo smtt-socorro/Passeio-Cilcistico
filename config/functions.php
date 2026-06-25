@@ -2,7 +2,7 @@
 /**
  * Funções Auxiliares do Sistema
  * Evento Bike SMTT Socorro
- * Data: 28/05/2025
+ * Data: 28/05/2026
  */
 
 // Incluir configuração do banco
