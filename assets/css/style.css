@@ -560,6 +560,39 @@ body {
   text-decoration: none;
 }
 
+.btn-secondary {
+  background: #56a156;
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  color: var(--white);
+  text-decoration: none;
+}
+
+.btn-logout {
+  background: #ef4444;
+  color: var(--white);
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 500;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.btn-logout:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  color: var(--white);
+  text-decoration: none;
+}
+
 /* Footer */
 footer {
   margin-top: 80px;

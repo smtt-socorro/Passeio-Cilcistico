@@ -29,13 +29,13 @@ include 'includes/header.php';
                     
                     <div class="destaque-evento">
                         <h4><i class="fas fa-info-circle"></i> Dados do Evento</h4>
-                        <p><strong>Data:</strong> 29 de Agosto de 2026<br>
-                        <strong>Local:</strong> Nossa Senhora do Socorro - SE<br>
-                        <strong>Concentração:</strong> 07:00h<br>
+                        <p><strong>Data:</strong> 16 de Agosto de 2026<br>
+                        <strong>Local:</strong> Na Praça Eu Amo Socorro - SE<br>
+                        <strong>Concentração:</strong> 06:00h<br>
                         <strong>Retirada de Material:</strong> SMTT de Nossa Senhora do Socorro - SE</p>
                     </div>
                     
-                    <p>O <strong>Passeio Ciclistico</strong> é uma atividade esportiva e recreativa organizada pela SMTT de Nossa Senhora do Socorro - SE, com o objetivo de promover a prática do ciclismo, a consciência sobre mobilidade urbana sustentável e o bem-estar da comunidade.</p>
+                    <p>O <strong>Pedala Socorro 2026</strong> é uma atividade esportiva e recreativa organizada pela SMTT de Nossa Senhora do Socorro - SE, com o objetivo de promover a prática do ciclismo, a consciência sobre mobilidade urbana sustentável e o bem-estar da comunidade.</p>
                 </div>
 
                 <!-- Seção 2: Condições de Participação -->
@@ -50,12 +50,26 @@ include 'includes/header.php';
                         <li>Inscrição é gratuita e pessoal, não sendo transferível</li>
                     </ul>
                     
-                    <h3>2.2 Documentação Necessária</h3>
+                    <h3>2.2 Itens e Documentos Necessários</h3>
                     <ul>
                         <li>CPF válido para inscrição</li>
                         <li>ID de inscrição gerado pelo sistema</li>
-                        <li>Documento de identidade para retirada do material</li>
+                        <li>Documento de identidade e 2 kg de alimento para retirada do material</li>
                     </ul>
+
+                    <div class="destaque-evento">
+                        <h4><i class="fas fa-gift"></i> Onde retirar o material do evento?</h4>
+                        <p><strong>Local:</strong> SMTT de Nossa Senhora do Socorro - SE<br>
+                        <strong>Horário:</strong> Segunda a sexta, das 8h às 14h<br>
+                        <strong>O kit do participante inclui:</strong></p>
+                        <ul>
+                            <li>Camiseta oficial do evento</li>
+                            <li>Número de identificação</li>
+                            <li>Mapa do percurso</li>
+                            <li>Informações de segurança</li>
+                            <li>Brindes dos patrocinadores</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Seção 3: Equipamentos Obrigatórios -->
@@ -214,7 +228,7 @@ include 'includes/header.php';
                     
                     <div class="destaque-evento">
                         <h4><i class="fas fa-phone"></i> Contato para Emergências</h4>
-                        <p><strong>SMTT Socorro:</strong> (79) 3256-5474<br>
+                        <p><strong>SMTT Socorro:</strong> (79) 99898-1288<br>
                         <strong>Email:</strong> smtt@socorro.se.gov.br</p>
                     </div>
                 </div>

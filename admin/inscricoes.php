@@ -188,18 +188,18 @@ if ($_POST) {
                 <h1 style="color: var(--accent-blue); margin-bottom: 5px;">
                     <i class="fas fa-users"></i> Gerenciar Inscrições
                 </h1>
-                <p style="color: var(--gray-medium); margin: 0;">
+                <p style="color: var(--gray-medium);margin-bottom: 10px;">
                     Total: <?php echo $total_records; ?> inscrições
                 </p>
             </div>
-            <nav class="admin-nav">
-                <a href="dashboard.php" class="btn btn-secondary">
+            <nav class="admin-nav" style="margin-bottom: 15px;">
+                <a href="dashboard.php" class="btn btn-secondary" style="margin: 5px;">
                     <i class="fas fa-chart-line"></i> Dashboard
                 </a>
-                <a href="export.php" class="btn btn-primary">
+                <a href="export.php" class="btn btn-primary" style="margin: 5px;">
                     <i class="fas fa-download"></i> Exportar
                 </a>
-                <a href="logout.php" class="btn btn-secondary">
+                <a href="logout.php" class="btn-logout" style="margin: 5px;">
                     <i class="fas fa-sign-out-alt"></i> Sair
                 </a>
             </nav>

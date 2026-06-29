@@ -606,8 +606,8 @@ document.addEventListener('DOMContentLoaded', function() {
             </head>
             <body>
                 <div class="print-header">
-                    <h1>Relatório - Evento de Bicicleta de Socorro</h1>
-                    <h2>Data do Evento: 29 de Agosto de 2026</h2>
+                    <h1>Relatório - Pedala Socorro 2026</h1>
+                    <h2>Data do Evento: 16 de Agosto de 2026</h2>
                 </div>
                 <div class="print-date">
                     Relatório gerado em: ${currentDate} às ${currentTime}

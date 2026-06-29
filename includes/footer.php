@@ -17,7 +17,7 @@
                     </div>
                     <div style="display: flex; align-items: center; gap: 8px;">
                         <i class="fas fa-phone"></i>
-                        <span>(79) 3259-3920</span>
+                        <span>(79) 99898-1288</span>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                     &copy; 2026 SMTT - Nossa Senhora do Socorro, SE. Todos os direitos reservados.
                 </p>
                 <p style="margin: 8px 0 0 0; font-size: 0.8rem; opacity: 0.7;">
-                    Evento de Bicicleta - 29 de Agosto de 2026
+                    Pedala Socorro 2026 - 16 de Agosto de 2026
                 </p>
             </div>
         </footer>

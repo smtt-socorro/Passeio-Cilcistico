@@ -82,7 +82,7 @@ function gerarProximoID() {
             throw new Exception('Falha ao gerar sequencial');
         }
 
-        $id_formatado = sprintf('B%04d', $numero);
+        $id_formatado = sprintf('S%04d', $numero);
 
         $conn->commit();
 
@@ -113,8 +113,8 @@ function verificarLimiteInscricoes($cpf) {
         
         $result = $stmt->fetch();
         
-        // Retorna true se pode fazer mais inscrições (menos de 2)
-        return $result['total'] < 2;
+        // Retorna true se pode fazer mais inscrições (menos de 1)
+        return $result['total'] < 1;
         
     } catch (Exception $e) {
         error_log('Erro ao verificar limite de inscrições: ' . $e->getMessage());

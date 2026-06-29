@@ -8,11 +8,11 @@ $admin_area = strpos($_SERVER['REQUEST_URI'], '/admin/') !== false;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Evento de Bicicleta - SMTT Socorro. Inscreva-se para participar do maior evento de ciclismo da região em 29/08/2026.">
+    <meta name="description" content="Evento de Bicicleta - SMTT Socorro. Inscreva-se para participar do maior evento de ciclismo da região em 16/08/2026.">
     <meta name="keywords" content="evento, bicicleta, ciclismo, socorro, sergipe, smtt">
     <meta name="author" content="SMTT Socorro">
     
-    <title><?php echo isset($page_title) ? $page_title . ' - ' : ''; ?>Evento Bike SMTT Socorro</title>
+    <title><?php echo isset($page_title) ? $page_title . ' - ' : ''; ?>Pedala Socorro 2026</title>
     
     <link rel="stylesheet" href="<?php echo $admin_area ? '../' : ''; ?>assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +38,7 @@ $admin_area = strpos($_SERVER['REQUEST_URI'], '/admin/') !== false;
                 <div class="logo-icon">
                     <i class="fas fa-bicycle"></i>
                 </div>
-                <span>Evento Bike SMTT</span>
+                <span>Pedala Socorro 2026</span>
             </div>
             <nav>
                 <ul class="nav-links">

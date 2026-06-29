@@ -24,8 +24,8 @@ $query = "SELECT COUNT(*) as total FROM inscricoes WHERE DATE(data_inscricao) = 
 $stmt = $conn->query($query);
 $metricas['inscricoes_hoje'] = $stmt->fetch()['total'];
 
-// CPFs com 2 inscrições
-$query = "SELECT cpf, COUNT(*) as total FROM inscricoes WHERE status = 'ativa' GROUP BY cpf HAVING COUNT(*) = 2;
+// CPFs com 1 inscrição
+$query = "SELECT cpf, COUNT(*) as total FROM inscricoes WHERE status = 'ativa' GROUP BY cpf HAVING COUNT(*) = 1";
 $stmt = $conn->query($query);
 $metricas['cpfs_multiplos'] = $stmt->rowCount();
 
@@ -142,14 +142,14 @@ $ultimas_inscricoes = $stmt->fetchAll();
                     <i class="fas fa-id-card"></i>
                 </div>
                 <div class="metric-value"><?php echo $metricas['cpfs_multiplos']; ?></div>
-                <div class="metric-label">CPFs com 2 Inscrições</div>
+                <div class="metric-label">CPFs com 1 Inscrição  </div>
             </div>
 
             <div class="metric-card">
                 <div class="metric-icon" style="background: var(--primary-blue); color: var(--white);">
                     <i class="fas fa-calendar-alt"></i>
                 </div>
-                <div class="metric-value" style="font-size: 1.5rem;">29/08/2026</div>
+                <div class="metric-value" style="font-size: 1.5rem;">16/08/2026</div>
                 <div class="metric-label">Data do Evento</div>
             </div>
         </div>

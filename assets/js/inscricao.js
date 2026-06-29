@@ -111,13 +111,13 @@ function checkCPFExists(cpf) {
             if (data.count >= 2) {
                 showErrorModal(
                     'Limite de Inscrições Excedido',
-                    'Este CPF já possui o máximo de 2 inscrições ativas permitidas.',
+                    'Este CPF já possui o máximo de 1 inscrições ativas permitidas.',
                     data.ids
                 );
             } else {
                 showErrorModal(
                     'CPF Já Cadastrado',
-                    'Este CPF já possui uma inscrição ativa no evento. Você pode fazer uma segunda inscrição se desejar.',
+                    'Este CPF já possui uma inscrição ativa no evento. Você  não pode fazer uma segunda inscrição se desejar.',
                     data.ids
                 );
             }

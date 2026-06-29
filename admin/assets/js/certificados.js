@@ -151,8 +151,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Atualizar apenas o ID de inscrição
             const idFormatado = selectedParticipant.id_inscricao_formatado;
-            if (idFormatado && idFormatado.length > 1 && idFormatado.toUpperCase().startsWith('B')) {
-                cardIdPrefix.textContent = 'B';
+            if (idFormatado && idFormatado.length > 1 && idFormatado.toUpperCase().startsWith('S')) {
+                cardIdPrefix.textContent = 'S';
                 cardIdNumber.textContent = idFormatado.substring(1);
             } else {
                 cardIdPrefix.textContent = '';

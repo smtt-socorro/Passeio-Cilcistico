@@ -1,5 +1,5 @@
 <?php
-$page_title = "Evento Bike Socorro";
+$page_title = "início";
 $admin_area = false;
 include 'includes/header.php';
 ?>
@@ -43,7 +43,7 @@ include 'includes/header.php';
                         <i class="fas fa-calendar-alt"></i>
                     </div>
                     <div class="event-info-title">Data do Evento</div>
-                    <div class="event-info-text">29 de Agosto de 2026<br>Concentração às 07:00h</div>
+                    <div class="event-info-text">16 de Agosto de 2026<br>Concentração às 06:00h</div>
                 </div>
 
                 <div class="event-info-card">
@@ -51,7 +51,7 @@ include 'includes/header.php';
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <div class="event-info-title">Local de Concentração</div>
-                    <div class="event-info-text">Orla de Nossa Senhora do Socorro - SE</div>
+                    <div class="event-info-text">Na Praça Eu Amo Socorro - SE</div>
                 </div>
 
                 <div class="event-info-card">
@@ -59,7 +59,7 @@ include 'includes/header.php';
                         <i class="fas fa-users"></i>
                     </div>
                     <div class="event-info-title">Participação</div>
-                    <div class="event-info-text">Inscrições gratuitas<br>Máximo 1 por CPF</div>
+                    <div class="event-info-text">Máximo 1 por CPF<br>Participação mediante 2 kg de alimento</div>
                 </div>
             </div>
 

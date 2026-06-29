@@ -11,7 +11,7 @@ header('Content-Type: text/html; charset=utf-8');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instalação - Sistema Evento Bike SMTT</title>
+    <title>Instalação - Sistema Pedala Socorro 2026</title>
     <style>
         body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
         .success { color: green; background: #d4edda; padding: 10px; border-radius: 5px; margin: 10px 0; }
@@ -22,7 +22,7 @@ header('Content-Type: text/html; charset=utf-8');
     </style>
 </head>
 <body>
-    <h1>🚴‍♂️ Instalação do Sistema Evento Bike SMTT</h1>
+    <h1>🚴‍♂️ Instalação do Sistema Pedala Socorro 2026</h1>
     
     <?php
     if ($_POST) {

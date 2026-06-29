@@ -213,18 +213,18 @@ $total_geral = $total_ativas + $total_canceladas;
                 <h1 style="color: var(--accent-blue); margin-bottom: 5px;">
                     <i class="fas fa-download"></i> Exportar Dados
                 </h1>
-                <p style="color: var(--gray-medium); margin: 0;">
+                <p style="color: var(--gray-medium); margin-bottom: 10px;">
                     Baixe os dados das inscrições em diferentes formatos
                 </p>
             </div>
-            <nav class="admin-nav">
-                <a href="dashboard.php" class="btn btn-secondary">
+            <nav class="admin-nav" style="margin-bottom: 20px;">
+                <a href="dashboard.php" class="btn btn-secondary" style="margin: 5px;">
                     <i class="fas fa-chart-line"></i> Dashboard
                 </a>
-                <a href="inscricoes.php" class="btn btn-secondary">
+                <a href="inscricoes.php" class="btn btn-primary" style="margin: 5px;">
                     <i class="fas fa-users"></i> Gerenciar
                 </a>
-                <a href="logout.php" class="btn btn-secondary">
+                <a href="logout.php" class="btn btn-logout" style="margin: 5px;">
                     <i class="fas fa-sign-out-alt"></i> Sair
                 </a>
             </nav>
@@ -232,28 +232,37 @@ $total_geral = $total_ativas + $total_canceladas;
 
         <!-- Estatísticas -->
         <div class="metrics-grid">
-            <div class="metric-card">
-                <div class="metric-icon" style="background: var(--accent-blue); color: var(--white);">
+            <div class="metric-card" style="margin-bottom: 10px;">
+                <div class="metric-icon" style="background: var(--accent-blue); color: var(--white); padding: 5px; border-radius: 4px;">
                     <i class="fas fa-users"></i>
                 </div>
-                <div class="metric-value"><?php echo $total_geral; ?></div>
-                <div class="metric-label">Total de Inscrições</div>
+                <div style="display: flex; flex-direction: row-reverse; justify-content: left; gap: 5px;">
+                    <div class="metric-value"><?php echo $total_geral; ?></div>
+                    <div class="metric-label">Total de Inscrições</div>
+                </div>
+                
             </div>
 
-            <div class="metric-card">
-                <div class="metric-icon" style="background: var(--success); color: var(--white);">
+            <div class="metric-card" style="margin-bottom: 10px;">
+                <div class="metric-icon" style="background: var(--success); color: var(--white); padding: 5px; border-radius: 4px;">
                     <i class="fas fa-check-circle"></i>
                 </div>
-                <div class="metric-value"><?php echo $total_ativas; ?></div>
-                <div class="metric-label">Inscrições Ativas</div>
+                <div style="display: flex; flex-direction: row-reverse; justify-content: left; gap: 5px;">
+                    <div class="metric-value"><?php echo $total_ativas; ?></div>
+                    <div class="metric-label">Inscrições Ativas</div>
+                </div>
+                
             </div>
 
             <div class="metric-card">
-                <div class="metric-icon" style="background: var(--danger); color: var(--white);">
+                <div class="metric-icon" style="background: var(--danger); color: var(--white); padding: 5px; border-radius: 4px;">
                     <i class="fas fa-times-circle"></i>
                 </div>
-                <div class="metric-value"><?php echo $total_canceladas; ?></div>
-                <div class="metric-label">Inscrições Canceladas</div>
+                <div style="display: flex; flex-direction: row-reverse; justify-content: left; gap: 5px;">
+                    <div class="metric-value"><?php echo $total_canceladas; ?></div>
+                    <div class="metric-label">Inscrições Canceladas:</div>
+                </div>
+                
             </div>
         </div>
 

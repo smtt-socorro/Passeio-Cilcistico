@@ -141,15 +141,15 @@ try {
                         <div class='detail-grid'>
                             <div class='detail-item'>
                                 <label>Data do Evento</label>
-                                <span>🗓️ 29 de Agosto de 2026</span>
+                                <span>🗓️ 16 de Agosto de 2026</span>
                             </div>
                             <div class='detail-item'>
                                 <label>Local Principal</label>
-                                <span>📍 Orla de Nossa Senhora do Socorro - SE</span>
+                                <span>📍 Na Praça Eu Amo Socorro - SE</span>
                             </div>
                             <div class='detail-item'>
                                 <label>Horário de Concentração</label>
-                                <span>⏰ 07:00h</span>
+                                <span>⏰ 06:00h</span>
                             </div>
                             <div class='detail-item'>
                                 <label>Retirada do Material</label>

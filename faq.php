@@ -88,8 +88,7 @@ include 'includes/header.php';
                             </button>
                             <div class="faq-answer">
                                 <div class="faq-answer-content">
-                                    <p>Cada CPF pode ter no máximo <strong>2 inscrições ativas</strong> no evento.</p>
-                                    <p>Isso permite que você inscreva, por exemplo, você e um familiar usando seu CPF, mas mantém o controle sobre o número total de participantes.</p>
+                                    <p>Cada CPF pode ter no máximo <strong>1 inscrição ativa</strong> no evento.</p>
                                 </div>
                             </div>
                         </div>
@@ -104,9 +103,9 @@ include 'includes/header.php';
                             </button>
                             <div class="faq-answer">
                                 <div class="faq-answer-content">
-                                    <p><strong>Data:</strong> 29 de Agosto de 2026</p>
-                                    <p><strong>Horário:</strong> Concentração às 07:00h</p>
-                                    <p><strong>Local:</strong> Orla de Nossa Senhora do Socorro - SE</p>
+                                    <p><strong>Data:</strong> 16 de Agosto de 2026</p>
+                                    <p><strong>Horário:</strong> Concentração às 06:00h</p>
+                                    <p><strong>Local:</strong> Na Praça Eu Amo Socorro - SE</p>
                                     <p>Recomendamos chegar com antecedência para organização e aquecimento.</p>
                                 </div>
                             </div>
@@ -123,12 +122,13 @@ include 'includes/header.php';
                             <div class="faq-answer">
                                 <div class="faq-answer-content">
                                     <p><strong>Local:</strong> SMTT de Nossa Senhora do Socorro - SE</p>
-                                    <p><strong>Documentos necessários:</strong></p>
+                                    <p><strong>Itens e Documentos necessários:</strong></p>
                                     <ul>
                                         <li>CPF (documento físico ou digital)</li>
                                         <li>ID de inscrição (fornecido após o cadastro)</li>
+                                        <li>2 kg de alimentos</li>
                                     </ul>
-                                    <p><strong>Horário de funcionamento:</strong> Segunda a sexta, das 8h às 17h</p>
+                                    <p><strong>Horário de funcionamento:</strong> Segunda a sexta, das 8h às 14h</p>
                                 </div>
                             </div>
                         </div>
@@ -190,7 +190,7 @@ include 'includes/header.php';
                                     <p><strong>Para alterações, entre em contato:</strong></p>
                                     <ul>
                                         <li>Email: smtt@socorro.se.gov.br</li>
-                                        <li>Telefone: (79) 3259-3920</li>
+                                        <li>Telefone: (79) 99898-1288</li>
                                     </ul>
                                     <p>Tenha em mãos seu ID de inscrição e CPF para facilitar o atendimento.</p>
                                 </div>
@@ -227,7 +227,7 @@ include 'includes/header.php';
                                     <p>Para cancelar sua inscrição, entre em contato conosco:</p>
                                     <ul>
                                         <li>Email: smtt@socorro.se.gov.br</li>
-                                        <li>Telefone: (79) 3259-3920</li>
+                                        <li>Telefone: (79) 99898-1288</li>
                                     </ul>
                                     <p>Informe seu ID de inscrição e CPF. O cancelamento deve ser solicitado com pelo menos 48 horas de antecedência do evento.</p>
                                 </div>
@@ -286,7 +286,7 @@ include 'includes/header.php';
                             </div>
                             <div class="contact-details">
                                 <h4>Phone</h4>
-                                <p>(79) 3259-3920</p>
+                                <p>(79) 99898-1288</p>
                             </div>
                         </div>
 
@@ -296,7 +296,7 @@ include 'includes/header.php';
                             </div>
                             <div class="contact-details">
                                 <h4>Address</h4>
-                                <p>Orla de Nossa Senhora do Socorro - SE</p>
+                                <p>Na Praça Eu Amo Socorro - SE</p>
                             </div>
                         </div>
 
@@ -308,15 +308,15 @@ include 'includes/header.php';
                             <ul style="list-style: none; padding: 0; margin: 0;">
                                 <li style="color: #1a202c; margin-bottom: 8px; padding-left: 20px; position: relative;">
                                     <span style="position: absolute; left: 0; color: #4a90e2;">•</span>
-                                    <strong>Data:</strong> 29 de Agosto de 2026
+                                    <strong>Data:</strong> 16 de Agosto de 2026
                                 </li>
                                 <li style="color: #1a202c; margin-bottom: 8px; padding-left: 20px; position: relative;">
                                     <span style="position: absolute; left: 0; color: #4a90e2;">•</span>
-                                    <strong>Horário:</strong> Concentração às 07:00h
+                                    <strong>Horário:</strong> Concentração às 06:00h
                                 </li>
                                 <li style="color: #1a202c; margin-bottom: 8px; padding-left: 20px; position: relative;">
                                     <span style="position: absolute; left: 0; color: #4a90e2;">•</span>
-                                    <strong>Local:</strong> Orla de Nossa Senhora do Socorro - SE
+                                    <strong>Local:</strong> Na Praça Eu Amo Socorro - SE
                                 </li>
                                 <li style="color: #1a202c; margin-bottom: 8px; padding-left: 20px; position: relative;">
                                     <span style="position: absolute; left: 0; color: #4a90e2;">•</span>

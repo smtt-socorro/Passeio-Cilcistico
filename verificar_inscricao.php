@@ -108,7 +108,7 @@ include 'includes/header.php';
                             </div>
                             <div class="contact-details">
                                 <h4>Phone</h4>
-                                <p>(79) 3259-3920</p>
+                                <p>(79) 99898-1288</p>
                             </div>
                         </div>
 
@@ -118,7 +118,7 @@ include 'includes/header.php';
                             </div>
                             <div class="contact-details">
                                 <h4>Address</h4>
-                                <p>Orla de Nossa Senhora do Socorro - SE</p>
+                                <p>Na Praça Eu Amo Socorro - SE</p>
                             </div>
                         </div>
 
@@ -130,15 +130,15 @@ include 'includes/header.php';
                             <ul style="list-style: none; padding: 0; margin: 0;">
                                 <li style="color: #1a202c; margin-bottom: 8px; padding-left: 20px; position: relative;">
                                     <span style="position: absolute; left: 0; color: #4a90e2;">•</span>
-                                    <strong>Data:</strong> 29 de Agosto de 2026
+                                    <strong>Data:</strong> 16 de Agosto de 2026
                                 </li>
                                 <li style="color: #1a202c; margin-bottom: 8px; padding-left: 20px; position: relative;">
                                     <span style="position: absolute; left: 0; color: #4a90e2;">•</span>
-                                    <strong>Horário:</strong> Concentração às 07:00h
+                                    <strong>Horário:</strong> Concentração às 06:00h
                                 </li>
                                 <li style="color: #1a202c; margin-bottom: 8px; padding-left: 20px; position: relative;">
                                     <span style="position: absolute; left: 0; color: #4a90e2;">•</span>
-                                    <strong>Local:</strong> Orla de Nossa Senhora do Socorro - SE
+                                    <strong>Local:</strong> Na Praça Eu Amo Socorro - SE
                                 </li>
                                 <li style="color: #1a202c; margin-bottom: 8px; padding-left: 20px; position: relative;">
                                     <span style="position: absolute; left: 0; color: #4a90e2;">•</span>

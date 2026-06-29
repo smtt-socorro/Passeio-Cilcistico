@@ -16,7 +16,7 @@ $page_title = "Imprimir Cartão de Inscrição";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($page_title); ?> - Evento Bike Socorro</title>
+    <title><?php echo htmlspecialchars($page_title); ?> - Pedala Socorro 2026</title>
     
     <!-- CSS Globais e do Admin -->
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -39,7 +39,7 @@ $page_title = "Imprimir Cartão de Inscrição";
         <nav class="admin-nav">
             <a href="index.php" class="admin-logo">
                 <i class="fas fa-bicycle"></i>
-                Admin - Evento Bike Socorro
+                Admin - Pedala Socorro 2026
             </a>
             <div class="admin-user-menu">
                 <div class="admin-user-info">
@@ -79,7 +79,7 @@ $page_title = "Imprimir Cartão de Inscrição";
         <!-- Área de Busca -->
         <div class="search-area">
             <div class="search-form-container">
-                <label for="buscaParticipante">Buscar Participante (Nome, CPF ou ID da Inscrição):</label>
+                <label for="buscaParticipante">Buscar Participante (Nome ou ID da Inscrição):</label>
                 <div class="search-input-wrapper">
                     <i class="fas fa-search search-icon-input"></i>
                     <input type="text" id="buscaParticipante" placeholder="Digite para buscar...">
@@ -98,7 +98,7 @@ $page_title = "Imprimir Cartão de Inscrição";
                     <div class="card-main-content">
                         <!-- REMOVIDO: Nome do participante -->
                         <div class="card-registration-id">
-                            <span class="id-prefix" id="cardIdPrefix">B</span><span class="id-number" id="cardIdNumber">0000</span>
+                            <span class="id-prefix" id="cardIdPrefix">S</span><span class="id-number" id="cardIdNumber">0000</span>
                         </div>
                         <!-- REMOVIDO: Detalhes do evento -->
                     </div>

@@ -62,7 +62,7 @@ if ($_POST) {
             $result = $stmt->fetch();
             
             if ($result['total'] >= 2) {
-                throw new Exception('Este CPF já possui o máximo de 2 inscrições ativas permitidas');
+                throw new Exception('Este CPF já possui o máximo de 1 inscrições ativas permitidas');
             } else {
                 throw new Exception('Este CPF já possui uma inscrição ativa no evento');
             }
@@ -330,7 +330,7 @@ include 'includes/header.php';
                         </div>
                         <div class="contact-details">
                             <h4>Contato</h4>
-                            <p>(79) 3256-5474</p>
+                            <p>(79) 99898-1288</p>
                         </div>
                     </div>
 
@@ -340,7 +340,7 @@ include 'includes/header.php';
                         </div>
                         <div class="contact-details">
                             <h4>Endereço</h4>
-                            <p>Nossa Senhora do Socorro - SE</p>
+                            <p>Av. Nossa Sra. do Socorro, 30 - João Alves, Nossa Sra. do Socorro - SE, 49155-434</p>
                         </div>
                     </div>
 
@@ -352,15 +352,15 @@ include 'includes/header.php';
                         <ul style="list-style: none; padding: 0; margin: 0;">
                             <li style="color: var(--gray-dark); margin-bottom: 8px; padding-left: 20px; position: relative;">
                                 <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
-                                <strong>Data:</strong> 29 de Agosto de 2026
+                                <strong>Data:</strong> 16 de Agosto de 2026
                             </li>
                             <li style="color: var(--gray-dark); margin-bottom: 8px; padding-left: 20px; position: relative;">
                                 <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
-                                <strong>Horário:</strong> Concentração às 07:00h
+                                <strong>Horário:</strong> Concentração às 06:00h
                             </li>
                             <li style="color: var(--gray-dark); margin-bottom: 8px; padding-left: 20px; position: relative;">
                                 <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
-                                <strong>Local:</strong> Orla de Nossa Senhora do Socorro - SE
+                                <strong>Local:</strong> Na Praça Eu Amo Socorro - SE
                             </li>
                             <li style="color: var(--gray-dark); margin-bottom: 8px; padding-left: 20px; position: relative;">
                                 <span style="position: absolute; left: 0; color: var(--accent-blue);">•</span>
