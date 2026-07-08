@@ -1,5 +1,6 @@
 <?php
 require_once 'config/functions.php';
+require_once 'config/email.php';
 
 $page_title = "Inscrição no Evento";
 $admin_area = false;
@@ -145,6 +146,13 @@ if ($_POST) {
         if ($stmt->execute()) {
             // Log da atividade
             logAtividade('Inscrição realizada', "ID: {$idData['id_formatado']}, CPF: {$cpf}");
+
+            // Enviar e-mail de confirmação
+            try {
+                enviarEmailConfirmacaoInscricao($email, $nome, $idData['id_formatado']);
+            } catch (Throwable $e) {
+                error_log('Falha ao enviar e-mail de confirmação: ' . $e->getMessage());
+            }
             
             // REDIRECT PARA EVITAR RESUBMISSÃO
             header('Location: inscricao.php?success=1&id=' . urlencode($idData['id_formatado']), true, 303);
