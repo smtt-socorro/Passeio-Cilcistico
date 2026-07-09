@@ -178,6 +178,25 @@ if ($_POST) {
             color: var(--white);
             border-color: var(--accent-blue);
         }
+        #viewModal {
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        #viewModal .modal-content {
+            max-width: 900px !important;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            margin: 20px auto;
+        }
+
+        #viewModal .modal-body {
+            overflow-y: auto;
+            max-height: calc(90vh - 90px);
+            text-align: left;
+        }
     </style>
 </head>
 <body>

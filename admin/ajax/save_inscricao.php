@@ -25,6 +25,8 @@ if ($_POST) {
                 $nome_completo = sanitize($_POST['nome_completo']);
                 $email = sanitize($_POST['email']);
                 $telefone = sanitize($_POST['telefone']);
+                $sexo = sanitize($_POST['sexo']);
+                $religiao = sanitize($_POST['religiao']);
                 $data_nascimento = $_POST['data_nascimento'];
                 $cep = preg_replace('/[^0-9]/', '', $_POST['cep']);
                 $logradouro = sanitize($_POST['logradouro']);
@@ -49,6 +51,8 @@ if ($_POST) {
                             nome_completo = ?, 
                             email = ?, 
                             telefone = ?, 
+                            sexo = ?, 
+                            religiao = ?, 
                             data_nascimento = ?, 
                             cep = ?, 
                             logradouro = ?, 
@@ -63,7 +67,7 @@ if ($_POST) {
                 
                 $stmt = $conn->prepare($query);
                 $stmt->execute([
-                    $nome_completo, $email, $telefone, $data_nascimento,
+                    $nome_completo, $email, $telefone, $sexo, $religiao, $data_nascimento,
                     $cep, $logradouro, $numero, $complemento,
                     $bairro, $cidade, $estado, $status, $link_trajeto_maps, $id
                 ]);

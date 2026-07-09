@@ -32,6 +32,8 @@ if (isset($_GET['format'])) {
                 data_nascimento,
                 email,
                 telefone,
+                sexo,
+                religiao,
                 cep,
                 logradouro,
                 numero,
@@ -83,6 +85,8 @@ function exportToCSV($data) {
         'Idade',
         'Email',
         'Telefone',
+        'Sexo',
+        'Religião',
         'CEP',
         'Logradouro',
         'Número',
@@ -107,6 +111,8 @@ function exportToCSV($data) {
             calcularIdade($row['data_nascimento']),
             $row['email'],
             $row['telefone'],
+            $row['sexo'],
+            $row['religiao'],
             preg_replace('/(\d{5})(\d{3})/', '$1-$2', $row['cep']),
             $row['logradouro'],
             $row['numero'],
@@ -144,6 +150,8 @@ function exportToExcel($data) {
     echo "<th>Idade</th>";
     echo "<th>Email</th>";
     echo "<th>Telefone</th>";
+    echo "<th>Sexo</th>";
+    echo "<th>Religião</th>";
     echo "<th>CEP</th>";
     echo "<th>Logradouro</th>";
     echo "<th>Número</th>";
@@ -165,6 +173,8 @@ function exportToExcel($data) {
         echo "<td>" . calcularIdade($row['data_nascimento']) . "</td>";
         echo "<td>" . htmlspecialchars($row['email']) . "</td>";
         echo "<td>" . htmlspecialchars($row['telefone']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['sexo'] ?? 'Não informado') . "</td>";
+        echo "<td>" . htmlspecialchars($row['religiao'] ?? 'Não informada') . "</td>";
         echo "<td>" . preg_replace('/(\d{5})(\d{3})/', '$1-$2', $row['cep']) . "</td>";
         echo "<td>" . htmlspecialchars($row['logradouro']) . "</td>";
         echo "<td>" . htmlspecialchars($row['numero']) . "</td>";

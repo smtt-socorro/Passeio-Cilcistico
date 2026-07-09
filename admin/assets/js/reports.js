@@ -197,6 +197,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <td>${row.idade} anos</td>
                 <td><a href="mailto:${row.email}" style="color: #4a90e2; text-decoration: none;">${row.email}</a></td>
                 <td><a href="tel:${row.telefone}" style="color: #4a90e2; text-decoration: none;">${row.telefone}</a></td>
+                <td>${row.sexo || 'Não informado'}</td>
+                <td>${row.religiao || 'Não informada'}</td>
                 <td>${formatCEP(row.cep)}</td>
                 <td>${row.logradouro}</td>
                 <td>${row.numero}</td>
@@ -218,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!currentReportData || currentReportData.length === 0) return;
 
         const headers = [
-            'ID', 'Nome Completo', 'CPF', 'Idade', 'Email', 'Telefone', 
+            'ID', 'Nome Completo', 'CPF', 'Idade', 'Email', 'Telefone', 'Sexo', 'Religião',
             'CEP', 'Logradouro', 'Número', 'Complemento', 'Bairro', 
             'Cidade', 'Estado', 'Data Inscrição', 'Status'
         ];
@@ -233,6 +235,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 row.idade + ' anos',
                 row.email,
                 row.telefone,
+                row.sexo || 'Não informado',
+                row.religiao || 'Não informada',
                 formatCEP(row.cep),
                 `"${row.logradouro.replace(/"/g, '""')}"`,
                 row.numero,
@@ -267,6 +271,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         <th>Idade</th>
                         <th>Email</th>
                         <th>Telefone</th>
+                        <th>Sexo</th>
+                        <th>Religião</th>
                         <th>CEP</th>
                         <th>Logradouro</th>
                         <th>Número</th>
@@ -290,6 +296,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     <td>${row.idade} anos</td>
                     <td>${row.email}</td>
                     <td>${row.telefone}</td>
+                    <td>${row.sexo || 'Não informado'}</td>
+                    <td>${row.religiao || 'Não informada'}</td>
                     <td>${formatCEP(row.cep)}</td>
                     <td>${row.logradouro}</td>
                     <td>${row.numero}</td>
@@ -645,6 +653,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         <th>CPF</th>
                         <th>Email</th>
                         <th>Telefone</th>
+                        <th>Sexo</th>
+                        <th>Religião</th>
                         <th>CEP</th>
                         <th>Endereço</th>
                         <th>Bairro</th>
@@ -664,6 +674,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     <td>${formatCPF(row.cpf)}</td>
                     <td>${row.email}</td>
                     <td>${row.telefone}</td>
+                    <td>${row.sexo || 'Não informado'}</td>
+                    <td>${row.religiao || 'Não informada'}</td>
                     <td>${formatCEP(row.cep)}</td>
                     <td>${endereco}</td>
                     <td>${row.bairro}</td>
@@ -690,6 +702,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         <th>ID</th>
                         <th>Nome</th>
                         <th>Telefone</th>
+                        <th>Sexo</th>
+                        <th>Religião</th>
                         <th>Bairro</th>
                         <th>Cidade</th>
                     </tr>
@@ -703,6 +717,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     <td><span class="id-badge">${row.id_inscricao_formatado}</span></td>
                     <td>${row.nome_completo}</td>
                     <td>${row.telefone}</td>
+                    <td>${row.sexo || 'Não informado'}</td>
+                    <td>${row.religiao || 'Não informada'}</td>
                     <td>${row.bairro}</td>
                     <td>${row.cidade} - ${row.estado}</td>
                 </tr>

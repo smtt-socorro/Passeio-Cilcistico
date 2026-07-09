@@ -239,6 +239,8 @@ try {
             <th>Idade</th>
             <th>Email</th>
             <th>Telefone</th>
+            <th>Sexo</th>
+            <th>Religião</th>
             <th>CEP</th>
             <th>Logradouro</th>
             <th>Número</th>

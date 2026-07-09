@@ -2,8 +2,10 @@
 session_start();
 require_once '../../config/functions.php';
 
+header('Content-Type: application/json; charset=utf-8');
+
 // Verificar se está logado
-if (!isset($_SESSION['admin_logado'])) {
+if (!isset($_SESSION['admin_logado']) || $_SESSION['admin_logado'] !== true) {
     echo json_encode(['success' => false, 'message' => 'Não autorizado']);
     exit();
 }
@@ -24,6 +26,7 @@ try {
     $stmt = $conn->prepare($query);
     $stmt->execute([$id]);
     $inscricao = $stmt->fetch();
+    $linkTrajetoMaps = $inscricao['link_trajeto_maps'] ?? '';
     
     if (!$inscricao) {
         echo json_encode(['success' => false, 'message' => 'Inscrição não encontrada']);
@@ -68,6 +71,14 @@ try {
                             <div class='detail-item'>
                                 <label>Telefone</label>
                                 <span><a href='tel:{$inscricao['telefone']}' style='color: #4a90e2; text-decoration: none;'>{$inscricao['telefone']}</a></span>
+                            </div>
+                            <div class='detail-item'>
+                                <label>Sexo</label>
+                                <span>" . ucfirst($inscricao['sexo'] ?? 'Não informado') . "</span>
+                            </div>
+                            <div class='detail-item'>
+                                <label>Religião</label>
+                                <span>" . ucfirst($inscricao['religiao'] ?? 'Não informada') . "</span>
                             </div>
                             <div class='detail-item'>
                                 <label>Status</label>
@@ -127,7 +138,7 @@ try {
                             </div>
                             <div class='detail-item'>
                                 <label>Link do Trajeto no Maps</label>
-                                <span>" . ($inscricao['link_trajeto_maps'] ? "<a href='{$inscricao['link_trajeto_maps']}' target='_blank' style='color: #4a90e2; text-decoration: none;'><i class='fas fa-external-link-alt'></i> Ver no Google Maps</a>" : 'Não informado') . "</span>
+                                <span>" . (!empty($linkTrajetoMaps) ? "<a href='" . htmlspecialchars($linkTrajetoMaps, ENT_QUOTES, 'UTF-8') . "' target='_blank' style='color: #4a90e2; text-decoration: none;'><i class='fas fa-external-link-alt'></i> Ver no Google Maps</a>" : 'Não informado') . "</span>
                             </div>
                             <div class='detail-item'>
                                 <label>Número Sequencial</label>
@@ -196,6 +207,19 @@ try {
                                 <label>Telefone</label>
                                 <input type='text' name='telefone' value='" . htmlspecialchars($inscricao['telefone']) . "' required>
                             </div>
+                            <div class='form-group'>
+                                <label>Sexo</label>
+                                <select name='sexo' required>
+                                    <option value='masculino'" . ($inscricao['sexo'] == 'masculino' ? ' selected' : '') . ">Masculino</option>
+                                    <option value='feminino'" . ($inscricao['sexo'] == 'feminino' ? ' selected' : '') . ">Feminino</option>
+                                    <option value='outro'" . ($inscricao['sexo'] == 'outro' ? ' selected' : '') . ">Outro</option>
+                                </select>
+                            </div>
+                            <div class='form-group'>
+                                <label>Religião</label>
+                                <input type='text' name='religiao' value='" . htmlspecialchars($inscricao['religiao']) . "' required>
+                            </div>
+
                             <div class='form-group'>
                                 <label>Data de Nascimento</label>
                                 <input type='date' name='data_nascimento' value='{$inscricao['data_nascimento']}' required>
@@ -271,7 +295,7 @@ try {
                             </div>
                             <div class='form-group' style='grid-column: 1 / -1;'>
                                 <label>Link do Trajeto no Google Maps</label>
-                                <input type='url' name='link_trajeto_maps' value='" . htmlspecialchars($inscricao['link_trajeto_maps']) . "' placeholder='https://maps.app.goo.gl/...'>
+                                <input type='url' name='link_trajeto_maps' value='" . htmlspecialchars($linkTrajetoMaps, ENT_QUOTES, 'UTF-8') . "' placeholder='https://maps.app.goo.gl/...'>
                                 <small style='color: #6b7280; font-size: 0.85rem;'>Link personalizado fornecido pelo participante (opcional)</small>
                             </div>
                         </div>
@@ -356,21 +380,4 @@ try {
     echo json_encode(['success' => false, 'message' => $e->getMessage()]);
 }
 
-// Função auxiliar para calcular idade
-function calcularIdade($dataNascimento) {
-    $nascimento = new DateTime($dataNascimento);
-    $hoje = new DateTime();
-    $idade = $hoje->diff($nascimento);
-    return $idade->y;
-}
-
-// Função auxiliar para formatar CPF
-function formatarCPF($cpf) {
-    return preg_replace('/(\d{3})(\d{3})(\d{3})(\d{2})/', '$1.$2.$3-$4', $cpf);
-}
-
-// Função auxiliar para formatar CEP
-function formatarCEP($cep) {
-    return preg_replace('/(\d{5})(\d{3})/', '$1-$2', $cep);
-}
 ?>

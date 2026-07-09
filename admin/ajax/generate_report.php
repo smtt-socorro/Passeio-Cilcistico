@@ -64,6 +64,8 @@ try {
                 data_nascimento,
                 email,
                 telefone,
+                sexo,
+                religiao,
                 cep,
                 logradouro,
                 numero,

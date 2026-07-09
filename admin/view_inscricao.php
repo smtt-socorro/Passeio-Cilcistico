@@ -24,6 +24,7 @@ $stmt->bindParam(':id', $id);
 $stmt->execute();
 
 $inscricao = $stmt->fetch();
+$linkTrajetoMaps = $inscricao['link_trajeto_maps'] ?? '';
 
 if (!$inscricao) {
     echo '<p style="color: var(--danger);">Inscrição não encontrada</p>';
@@ -45,6 +46,8 @@ if (!$inscricao) {
             <p><strong>Idade:</strong> <?php echo calcularIdade($inscricao['data_nascimento']); ?> anos</p>
             <p><strong>Email:</strong> <?php echo htmlspecialchars($inscricao['email']); ?></p>
             <p><strong>Telefone:</strong> <?php echo htmlspecialchars($inscricao['telefone']); ?></p>
+            <p><strong>Sexo:</strong> <?= htmlspecialchars($inscricao['sexo'] ?? 'Não informado') ?></p>
+            <p><strong>Religião:</strong> <?= htmlspecialchars($inscricao['religiao'] ?? 'Não informada') ?></p>
         </div>
     </div>
 
@@ -74,11 +77,11 @@ if (!$inscricao) {
     </h4>
     
     <div style="display: grid; gap: 15px;">
-        <?php if ($inscricao['link_trajeto_maps']): ?>
+        <?php if (!empty($linkTrajetoMaps)): ?>
             <div style="background: var(--light-blue); padding: 15px; border-radius: 8px;">
                 <p><strong><i class="fas fa-route"></i> Trajeto Personalizado:</strong></p>
                 <p>
-                    <a href="<?php echo htmlspecialchars($inscricao['link_trajeto_maps']); ?>" 
+                    <a href="<?php echo htmlspecialchars($linkTrajetoMaps); ?>" 
                        target="_blank" style="color: var(--accent-blue);">
                         Ver no Google Maps <i class="fas fa-external-link-alt"></i>
                     </a>

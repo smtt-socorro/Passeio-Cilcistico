@@ -20,7 +20,7 @@ $stmt = $conn->query($query);
 $metricas['total_inscricoes'] = $stmt->fetch()['total'];
 
 // Inscrições hoje
-$query = "SELECT COUNT(*) as total FROM inscricoes WHERE DATE(data_inscricao) = CURDATE() AND status = 'ativa'";
+$query = "SELECT COUNT(*) as total FROM inscricoes WHERE data_inscricao::date = CURRENT_DATE AND status = 'ativa'";
 $stmt = $conn->query($query);
 $metricas['inscricoes_hoje'] = $stmt->fetch()['total'];
 

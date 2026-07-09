@@ -44,7 +44,7 @@ function initMetricsCards() {
 
 // Atualizar métricas via AJAX
 function updateMetrics() {
-    fetch('ajax/get_metrics.php')
+    fetch('ajax/get_metrics.php', { cache: 'no-store' })
         .then(response => response.json())
         .then(data => {
             if (data.success) {
@@ -114,13 +114,12 @@ function animateValue(element, start, end, duration) {
 
 // Atualizações em tempo real
 function initRealtimeUpdates() {
-    // Atualizar métricas a cada 30 segundos
-    setInterval(updateMetrics, 30000);
-    
-    // Atualizar tabela de inscrições recentes a cada 60 segundos
-    setInterval(updateRecentRegistrations, 60000);
-    
-    // Mostrar timestamp da última atualização
+    updateMetrics();
+    updateRecentRegistrations();
+
+    setInterval(updateMetrics, 15000);
+    setInterval(updateRecentRegistrations, 15000);
+
     updateLastRefresh();
     setInterval(updateLastRefresh, 1000);
 }
@@ -154,7 +153,7 @@ function updateRecentRegistrations() {
     
     tableBody.classList.add('loading');
     
-    fetch('ajax/get_recent_registrations.php')
+    fetch('ajax/get_recent_registrations.php', { cache: 'no-store' })
         .then(response => response.json())
         .then(data => {
             if (data.success) {
@@ -272,8 +271,17 @@ function openModal(action, id) {
     modal.style.display = 'flex';
     
     // Carregar dados via AJAX
-    fetch(`ajax/get_inscricao.php?id=${id}&action=${action}`)
-        .then(response => response.json())
+    fetch(`ajax/get_inscricao.php?id=${id}&action=${action}`, { cache: 'no-store' })
+        .then(async response => {
+            const text = await response.text();
+
+            try {
+                return JSON.parse(text);
+            } catch (error) {
+                console.error('Resposta inválida do servidor:', text);
+                throw new Error('O servidor retornou uma resposta inválida.');
+            }
+        })
         .then(data => {
             if (data.success) {
                 modalBody.innerHTML = data.html;

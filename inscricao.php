@@ -25,6 +25,8 @@ if ($_POST) {
         $data_nascimento = $_POST['data_nascimento'];
         $email = sanitize($_POST['email']);
         $telefone = sanitize($_POST['telefone']);
+        $sexo = trim($_POST['sexo'] ?? '');
+        $religiao = trim($_POST['religiao'] ?? '');
         $cep = preg_replace('/[^0-9]/', '', $_POST['cep']);
         $logradouro = sanitize($_POST['logradouro']);
         $numero = sanitize($_POST['numero']);
@@ -49,6 +51,25 @@ if ($_POST) {
 
         if (!validarCPF($cpf)) {
             throw new Exception('CPF inválido');
+        }
+
+        $sexosPermitidos = [
+            'Masculino',
+            'Feminino',
+            'Não Binário',
+            'Outro / Prefiro Não Informar'
+        ];
+
+        if (!in_array($sexo, $sexosPermitidos, true)) {
+            throw new Exception('Selecione uma opção válida para o campo sexo.');
+        }
+
+        if (strlen($religiao) > 100) {
+            throw new Exception('O campo religião deve ter no máximo 100 caracteres.');
+        }
+
+        if ($religiao === '') {
+            $religiao = null;
         }
 
         // Verificar limite de inscrições por CPF
@@ -118,11 +139,11 @@ if ($_POST) {
 
         $query = "INSERT INTO inscricoes (
             id_inscricao_formatado, numero_sequencial_id, nome_completo, cpf, 
-            data_nascimento, email, telefone, cep, logradouro, numero, 
+            data_nascimento, email, telefone, sexo, religiao,cep, logradouro, numero, 
             complemento, bairro, cidade, estado, aceita_termos, data_inscricao, status
         ) VALUES (
             :id_formatado, :numero_sequencial, :nome, :cpf, :data_nascimento, 
-            :email, :telefone, :cep, :logradouro, :numero, :complemento, 
+            :email, :telefone, :sexo, :religiao, :cep, :logradouro, :numero, :complemento, 
             :bairro, :cidade, :estado, :aceita_termos, NOW(), 'ativa'
         )";
 
@@ -134,6 +155,8 @@ if ($_POST) {
         $stmt->bindParam(':data_nascimento', $data_nascimento);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':telefone', $telefone);
+        $stmt->bindParam(':sexo', $sexo);
+        $stmt->bindParam(':religiao', $religiao);
         $stmt->bindParam(':cep', $cep);
         $stmt->bindParam(':logradouro', $logradouro);
         $stmt->bindParam(':numero', $numero);
@@ -224,12 +247,37 @@ include 'includes/header.php';
                                 <input type="email" id="email" name="email" 
                                        placeholder="seu.email@exemplo.com" required>
                             </div>
-                        </div>
+                        </div>                        
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefone">Telefone/Celular</label>
+                                <input type="tel" id="telefone" name="telefone" 
+                                    placeholder="(00) 00000-0000" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sexo">Sexo</label>
+                                <select id="sexo" name="sexo" class="form-control" required>
+                                    <option value="">Selecione</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Feminino">Feminino</option>
+                                    <option value="Não Binário">Não Binário</option>
+                                    <option value="Outro / Prefiro Não Informar">Outro / Prefiro Não Informar</option>
+                                </select>
+                            </div>
+                        </div>                        
 
                         <div class="form-group">
-                            <label for="telefone">Telefone/Celular</label>
-                            <input type="tel" id="telefone" name="telefone" 
-                                   placeholder="(00) 00000-0000" required>
+                            <label for="religiao">Religião</label>
+                            <input 
+                                type="text" 
+                                id="religiao" 
+                                name="religiao" 
+                                class="form-control" 
+                                maxlength="100" 
+                                placeholder="Informe sua religião, se desejar"
+                            >
                         </div>
                     </div>
 
