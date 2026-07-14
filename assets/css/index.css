@@ -165,6 +165,33 @@
   line-height: 1.5;
 }
 
+.map-text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 10px;
+
+    color: rgb(9, 50, 231);
+    font-weight: 600;
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.map-text-link:hover {
+    color: rgb(6, 34, 160);
+    text-decoration: underline;
+    transform: translateX(2px);
+}
+
+.map-text-link:focus-visible {
+    outline: 3px solid rgba(9, 50, 231, 0.25);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
 /* Contador regressivo */
 .countdown-section {
   margin: 64px 0;

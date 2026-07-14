@@ -82,7 +82,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $page_title; ?> - Pedala Socorro 2026</title>
+    <title><?php echo $page_title; ?> - Socorro no Pedal 2026</title>
     
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -102,7 +102,7 @@ try {
         <nav class="admin-nav">
             <a href="index.php" class="admin-logo">
                 <i class="fas fa-bicycle"></i>
-                Admin - Pedala Socorro 2026
+                Admin - Socorro no Pedal 2026
             </a>
             
             <div class="admin-user-menu">

@@ -22,7 +22,7 @@ if ($_POST) {
         // Validações
         $nome = sanitize($_POST['nome_completo']);
         $cpf = preg_replace('/[^0-9]/', '', $_POST['cpf']);
-        $data_nascimento = $_POST['data_nascimento'];
+        $data_nascimento = trim($_POST['data_nascimento'] ?? '');
         $email = sanitize($_POST['email']);
         $telefone = sanitize($_POST['telefone']);
         $sexo = trim($_POST['sexo'] ?? '');
@@ -36,12 +36,48 @@ if ($_POST) {
         $estado = sanitize($_POST['estado']);
         $aceita_termos = isset($_POST['aceita_termos']) ? 1 : 0;
 
-        // Validar e converter data de nascimento dd/mm/yyyy para yyyy-mm-dd
-        if (!empty($data_nascimento)) {
-            if (!validarDataNascimento($data_nascimento)) {
-                throw new Exception('Data de nascimento inválida. Use o formato dd/mm/aaaa');
-            }
-            $data_nascimento = converterDataParaMySQL($data_nascimento);
+        // O input type="date" envia a data no formato yyyy-mm-dd.
+        if ($data_nascimento === '') {
+            throw new Exception('Data de nascimento é obrigatória.');
+        }
+
+        $dataNascimentoObj = DateTime::createFromFormat(
+            '!Y-m-d',
+            $data_nascimento
+        );
+
+        $errosData = DateTime::getLastErrors();
+
+        $dataInvalida =
+            !$dataNascimentoObj ||
+            (
+                $errosData !== false &&
+                (
+                    $errosData['warning_count'] > 0 ||
+                    $errosData['error_count'] > 0
+                )
+            ) ||
+            $dataNascimentoObj->format('Y-m-d') !== $data_nascimento;
+
+        if ($dataInvalida) {
+            throw new Exception(
+                'Informe uma data de nascimento válida.'
+            );
+        }
+
+        $hoje = new DateTime('today');
+        $dataMinima = new DateTime('1900-01-01');
+
+        if ($dataNascimentoObj > $hoje) {
+            throw new Exception(
+                'A data de nascimento não pode ser futura.'
+            );
+        }
+
+        if ($dataNascimentoObj < $dataMinima) {
+            throw new Exception(
+                'A data de nascimento deve ser posterior a 01/01/1900.'
+            );
         }
 
         // Validações básicas
@@ -88,10 +124,6 @@ if ($_POST) {
             } else {
                 throw new Exception('Este CPF já possui uma inscrição ativa no evento');
             }
-        }
-
-        if (empty($data_nascimento)) {
-            throw new Exception('Data de nascimento é obrigatória');
         }
 
         if (!validarEmail($email)) {
@@ -238,8 +270,16 @@ include 'includes/header.php';
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="data_nascimento">Data de Nascimento</label>
-                                <input type="text" id="data_nascimento" name="data_nascimento" 
-                                       placeholder="dd/mm/aaaa" required maxlength="10">
+                                <input 
+                                    type="date"
+                                    id="data_nascimento"
+                                    name="data_nascimento"
+                                    class="form-control"
+                                    autocomplete="bday"
+                                    required
+                                    min="1900-01-01"
+                                    max="<?= date('Y-m-d'); ?>"
+                                >
                             </div>
                             
                             <div class="form-group">
@@ -533,7 +573,7 @@ include 'includes/header.php';
 <script src="assets/js/validation.js"></script>
 <script src="assets/js/viacep.js"></script>
 <script src="assets/js/main.js"></script>
-<script src="assets/js/inscricao.js"></script>
+<script src="assets/js/inscricao.js?v=<?= filemtime(__DIR__ . '/assets/js/inscricao.js') ?>"></script>
 
 <?php
 // JavaScript para resultado do formulário

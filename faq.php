@@ -341,6 +341,6 @@ include 'includes/header.php';
     </div>
 </section>
 
-<script src="assets/js/faq.js"></script>
+<script src="assets/js/faq.js?v=<?= filemtime(__DIR__ . '/assets/js/faq.js') ?>"></script>
 
 <?php include 'includes/footer.php'; ?>

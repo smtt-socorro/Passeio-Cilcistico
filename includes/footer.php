@@ -2,12 +2,12 @@
         <!-- Footer -->
         <footer style="margin-top: 80px; padding: 40px 0; text-align: center; color: rgba(29, 28, 28, 0.8); border-top: 1px solid rgba(34, 37, 187, 0.1);">
             <div style="margin-bottom: 30px;">
-                <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 20px;">
-                    <a href="index.php" style="color: rgb(255, 255, 255); text-decoration: none; transition: color 0.3s;">Início</a>
-                    <a href="inscricao.php" style="color: rgb(255, 255, 255); text-decoration: none; transition: color 0.3s;">Inscrever-se</a>
-                    <a href="verificar_inscricao.php" style="color: rgb(255, 255, 255); text-decoration: none; transition: color 0.3s;">Consultar</a>
-                    <a href="faq.php" style="color: rgb(255, 255, 255); text-decoration: none; transition: color 0.3s;">FAQ</a>
-                    <a href="termos.php" style="color: rgb(255, 255, 255); text-decoration: none; transition: color 0.3s;">Termos</a>
+                <div class="footer-links">
+                    <a href="index.php" class="footer-link">Início</a>
+                    <a href="inscricao.php" class="footer-link">Inscrever-se</a>
+                    <a href="verificar_inscricao.php" class="footer-link">Consultar</a>
+                    <a href="faq.php" class="footer-link">FAQ</a>
+                    <a href="termos.php" class="footer-link">Termos</a>
                 </div>
                 
                 <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;">
@@ -27,7 +27,7 @@
                     &copy; 2026 SMTT - Nossa Senhora do Socorro, SE. Todos os direitos reservados.
                 </p>
                 <p style="margin: 8px 0 0 0; font-size: 0.8rem; opacity: 0.7;">
-                    Pedala Socorro 2026 - 16 de Agosto de 2026
+                    Socorro no Pedal 2026 - 16 de Agosto de 2026
                 </p>
             </div>
         </footer>

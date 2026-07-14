@@ -68,6 +68,13 @@
 }
 
 /* Barra de busca */
+.faq-highlight {
+    background: #ffe8a3;
+    color: inherit;
+    padding: 0 2px;
+    border-radius: 3px;
+}
+
 .faq-search {
     background: var(--white);
     border-radius: 20px;

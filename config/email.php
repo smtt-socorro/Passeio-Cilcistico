@@ -21,7 +21,7 @@ function enviarEmailConfirmacaoInscricao($email, $nome, $idInscricao) {
     $smtpPass = getenv('SMTP_PASS');
 
     $mailFrom = getenv('MAIL_FROM') ?: $smtpUser;
-    $mailFromName = getenv('MAIL_FROM_NAME') ?: 'Pedala Socorro 2026';
+    $mailFromName = getenv('MAIL_FROM_NAME') ?: 'Socorro no Pedal 2026';
 
     if (!$smtpHost || !$smtpUser || !$smtpPass) {
         error_log('SMTP não configurado corretamente.');
@@ -45,7 +45,7 @@ function enviarEmailConfirmacaoInscricao($email, $nome, $idInscricao) {
         $mail->addAddress($email, $nome);
 
         $mail->isHTML(true);
-        $mail->Subject = 'Confirmação de inscrição - Pedala Socorro 2026';
+        $mail->Subject = 'Confirmação de inscrição - Socorro no Pedal 2026';
 
         $nomeSeguro = htmlspecialchars($nome, ENT_QUOTES, 'UTF-8');
         $idSeguro = htmlspecialchars($idInscricao, ENT_QUOTES, 'UTF-8');
@@ -55,7 +55,7 @@ function enviarEmailConfirmacaoInscricao($email, $nome, $idInscricao) {
 
             <p>Olá, <strong>{$nomeSeguro}</strong>!</p>
 
-            <p>Sua inscrição no Pedala Socorro 2026 foi realizada com sucesso.</p>
+            <p>Sua inscrição no Socorro no Pedal 2026 foi realizada com sucesso.</p>
 
             <p><strong>Número da inscrição:</strong> {$idSeguro}</p>
 
@@ -64,12 +64,16 @@ function enviarEmailConfirmacaoInscricao($email, $nome, $idInscricao) {
             <br>
 
             <p>Atenciosamente,<br>
-            Organização do Pedala Socorro 2026</p>
+            Organização do Socorro no Pedal 2026</p>
 
-            <p><Strong>Realizado pela Superintendência Municipal de Transporte e Trânsito (SMTT) de Nossa Senhora de Socorro</Strong></p>
+            <p>Realizado pela Superintendência Municipal de Transporte e Trânsito (SMTT) de Nossa Senhora de Socorro</p>
+
+            <br>
+
+            <p><Strong>Este é um e-mail automático, por favor não responda.<Strong></p>
         ";
 
-        $mail->AltBody = "Olá, {$nome}. Sua inscrição no Pedala Socorro 2026 foi realizada com sucesso. Número da inscrição: {$idInscricao}.";
+        $mail->AltBody = "Olá, {$nome}. Sua inscrição no Socorro no Pedal 2026 foi realizada com sucesso. Número da inscrição: {$idInscricao}.";
 
         $mail->send();
 

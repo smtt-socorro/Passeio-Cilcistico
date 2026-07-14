@@ -4,7 +4,10 @@ $admin_area = false;
 include 'includes/header.php';
 ?>
 
-<link rel="stylesheet" href="assets/css/index.css">
+<link
+    rel="stylesheet"
+    href="assets/css/index.css?v=<?= filemtime(__DIR__ . '/assets/css/index.css') ?>"
+>
 
 <div class="index-page">
     <!-- Hero Section Minimal -->
@@ -52,6 +55,16 @@ include 'includes/header.php';
                     </div>
                     <div class="event-info-title">Local de Concentração</div>
                     <div class="event-info-text">Na Praça Eu Amo Socorro - SE</div>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=Av.%20Ruy%20de%20Gomes%20Menezes%20-%20Marcos%20Freire%20II%2C%20Nossa%20Senhora%20do%20Socorro%20-%20SE"
+                        class="map-text-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <i class="fas fa-map-marked-alt"></i>
+                        Ver no Mapa
+                    </a>
                 </div>
 
                 <div class="event-info-card">

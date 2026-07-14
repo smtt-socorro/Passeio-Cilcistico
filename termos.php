@@ -4,7 +4,10 @@ $admin_area = false;
 include 'includes/header.php';
 ?>
 
-<link rel="stylesheet" href="assets/css/termos.css">
+<link
+    rel="stylesheet"
+    href="assets/css/termos.css?v=<?= filemtime(__DIR__ . '/assets/css/termos.css') ?>"
+>
 
 <!-- Página de Termos -->
 <section class="termos-page">
@@ -13,7 +16,7 @@ include 'includes/header.php';
             <!-- Header Get in Touch - Baseado nas imagens -->
             <div class="termos-header">
                <!-- <p class="termos-subtitle">Get in Touch</p>-->
-                <h1 class="termos-title">Termos de Responsibidade</h1>
+                <h1 class="termos-title">Termos de Responsabilidade</h1>
                 <p class="termos-description">
                     Leia atentamente todos os termos e condições para participação no evento de ciclismo. 
                     Sua segurança e a de todos os participantes é nossa prioridade.
@@ -35,7 +38,27 @@ include 'includes/header.php';
                         <strong>Retirada de Material:</strong> SMTT de Nossa Senhora do Socorro - SE</p>
                     </div>
                     
-                    <p>O <strong>Pedala Socorro 2026</strong> é uma atividade esportiva e recreativa organizada pela SMTT de Nossa Senhora do Socorro - SE, com o objetivo de promover a prática do ciclismo, a consciência sobre mobilidade urbana sustentável e o bem-estar da comunidade.</p>
+                    <p>O <strong>Socorro no Pedal 2026</strong> é uma atividade esportiva e recreativa organizada pela SMTT de Nossa Senhora do Socorro - SE, com o objetivo de promover a prática do ciclismo, a consciência sobre mobilidade urbana sustentável e o bem-estar da comunidade.</p>
+
+                    <div class="event-map-container">
+                        <iframe
+                            src="https://www.google.com/maps?q=Av.%20Ruy%20de%20Gomes%20Menezes%20-%20Marcos%20Freire%20II%2C%20Nossa%20Senhora%20do%20Socorro%20-%20SE&output=embed"
+                            title="Mapa da Praça Eu Amo Socorro"
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
+                        ></iframe>
+
+                        <a
+                            href="https://www.google.com/maps/search/?api=1&query=Av.%20Ruy%20de%20Gomes%20Menezes%20-%20Marcos%20Freire%20II%2C%20Nossa%20Senhora%20do%20Socorro%20-%20SE"
+                            class="map-text-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fas fa-external-link-alt"></i>
+                            Abrir no Google Maps
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Seção 2: Condições de Participação -->
@@ -69,6 +92,26 @@ include 'includes/header.php';
                             <li>Informações de segurança</li>
                             <li>Brindes dos patrocinadores</li>
                         </ul>
+                    </div>
+
+                    <div class="event-map-container">
+                        <iframe
+                            src="https://www.google.com/maps?q=Av.%20Nossa%20Sra.%20do%20Socorro%2C%2030%20-%20Jo%C3%A3o%20Alves%2C%20Nossa%20Senhora%20do%20Socorro%20-%20SE%2C%2049155-434&output=embed"
+                            title="Mapa da SMTT de Nossa Senhora do Socorro"
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
+                        ></iframe>
+
+                        <a
+                            href="https://www.google.com/maps/search/?api=1&query=Av.%20Nossa%20Sra.%20do%20Socorro%2C%2030%20-%20Jo%C3%A3o%20Alves%2C%20Nossa%20Senhora%20do%20Socorro%20-%20SE%2C%2049155-434"
+                            class="map-text-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fas fa-external-link-alt"></i>
+                            Abrir no Google Maps
+                        </a>
                     </div>
                 </div>
 
@@ -252,15 +295,19 @@ include 'includes/header.php';
                 </div>
             </div>
 
-            <!-- Botão voltar -->
-            <a href="index.php" class="back-button">
-                <i class="fas fa-arrow-left"></i>
-                Voltar à Página Inicial
-            </a>
+            <!-- Ações da página -->
+            <div class="termos-actions">
+                <a href="index.php" class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Voltar à Página Inicial</span>
+                </a>
+
+                <!-- O botão de impressão será inserido aqui pelo JavaScript -->
+            </div>
         </div>
     </div>
 </section>
 
-<script src="assets/js/termos.js"></script>
+<script src="assets/js/termos.js?v=<?= filemtime(__DIR__ . '/assets/js/termos.js') ?>"></script>
 
 <?php include 'includes/footer.php'; ?>

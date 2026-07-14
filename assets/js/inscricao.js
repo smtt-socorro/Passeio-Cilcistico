@@ -11,7 +11,6 @@ function initInscricaoForm() {
     initViaCEP();
     initCPFVerification();
     initFormSubmit();
-    initDateMask();
 }
 
 // Máscaras de entrada
@@ -376,52 +375,4 @@ if (!document.getElementById('toast-styles')) {
     styleSheet.id = 'toast-styles';
     styleSheet.textContent = toastStyles;
     document.head.appendChild(styleSheet);
-}
-
-// Máscara para data de nascimento dd/mm/yyyy
-function initDateMask() {
-    const dateInput = document.getElementById('data_nascimento');
-    if (dateInput) {
-        dateInput.addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '').slice(0, 8);
-            
-            if (value.length >= 5) {
-                e.target.value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4, 8);
-            } else if (value.length >= 3) {
-                e.target.value = value.slice(0, 2) + '/' + value.slice(2, 4);
-            } else if (value.length >= 1) {
-                e.target.value = value;
-            }
-        });
-
-        // Validação básica de data
-        dateInput.addEventListener('blur', function(e) {
-            const dateValue = e.target.value;
-            if (dateValue && !isValidDate(dateValue)) {
-                e.target.classList.add('is-invalid');
-                showToast('Data inválida. Use o formato dd/mm/aaaa', 'error');
-            } else {
-                e.target.classList.remove('is-invalid');
-            }
-        });
-    }
-}
-
-// Função para validar data
-function isValidDate(dateString) {
-    const regex = /^(\d{2})\/(\d{2})\/(\d{4})$/;
-    const match = dateString.match(regex);
-    
-    if (!match) return false;
-    
-    const day = parseInt(match[1], 10);
-    const month = parseInt(match[2], 10);
-    const year = parseInt(match[3], 10);
-    
-    // Verificar se é uma data válida
-    const date = new Date(year, month - 1, day);
-    return date.getDate() === day && 
-           date.getMonth() === month - 1 && 
-           date.getFullYear() === year &&
-           year >= 1900 && year <= new Date().getFullYear();
 }

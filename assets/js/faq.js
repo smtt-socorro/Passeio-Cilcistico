@@ -49,63 +49,159 @@ function initAccordion() {
 function initSearch() {
     const searchInput = document.getElementById('faq-search');
     const faqItems = document.querySelectorAll('.faq-item');
-    
-    if (searchInput) {
-        searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase().trim();
-            let visibleCount = 0;
-            
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question').textContent.toLowerCase();
-                const answer = item.querySelector('.faq-answer-content').textContent.toLowerCase();
-                
-                if (searchTerm === '' || question.includes(searchTerm) || answer.includes(searchTerm)) {
-                    item.style.display = 'block';
-                    visibleCount++;
-                    
-                    // Highlight do termo buscado
-                    if (searchTerm !== '') {
-                        highlightSearchTerm(item, searchTerm);
-                    } else {
-                        removeHighlight(item);
-                    }
-                } else {
-                    item.style.display = 'none';
+
+    if (!searchInput) {
+        return;
+    }
+
+    // Guardar o HTML original de cada pergunta e resposta.
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer-content');
+
+        if (question && !question.dataset.originalHtml) {
+            question.dataset.originalHtml = question.innerHTML;
+        }
+
+        if (answer && !answer.dataset.originalHtml) {
+            answer.dataset.originalHtml = answer.innerHTML;
+        }
+    });
+
+    searchInput.addEventListener('input', function () {
+        const searchTerm = this.value.trim().toLowerCase();
+        let visibleCount = 0;
+
+        faqItems.forEach(item => {
+            // Restaurar o HTML antes de uma nova busca.
+            removeHighlight(item);
+
+            const questionElement = item.querySelector('.faq-question');
+            const answerElement = item.querySelector('.faq-answer-content');
+
+            const questionText =
+                questionElement?.textContent.toLowerCase() || '';
+
+            const answerText =
+                answerElement?.textContent.toLowerCase() || '';
+
+            const found =
+                searchTerm === '' ||
+                questionText.includes(searchTerm) ||
+                answerText.includes(searchTerm);
+
+            if (found) {
+                item.style.display = 'block';
+                visibleCount++;
+
+                if (searchTerm !== '') {
+                    highlightSearchTerm(item, searchTerm);
                 }
-            });
-            
-            // Mostrar/esconder mensagem de "sem resultados"
-            toggleNoResults(visibleCount === 0 && searchTerm !== '');
+            } else {
+                item.style.display = 'none';
+            }
         });
+
+        toggleNoResults(visibleCount === 0 && searchTerm !== '');
+    });
+}
+
+// Destacar somente textos visíveis, sem pesquisar tags HTML.
+function highlightSearchTerm(item, term) {
+    const questionText =
+        item.querySelector('.faq-question > span') ||
+        item.querySelector('.faq-question');
+
+    const answer = item.querySelector('.faq-answer-content');
+
+    [questionText, answer].forEach(element => {
+        if (element) {
+            highlightTextNodes(element, term);
+        }
+    });
+}
+
+// Percorrer somente nós de texto.
+function highlightTextNodes(rootElement, term) {
+    const textNodes = [];
+
+    const walker = document.createTreeWalker(
+        rootElement,
+        NodeFilter.SHOW_TEXT,
+        {
+            acceptNode(node) {
+                const text = node.nodeValue || '';
+
+                if (!text.trim()) {
+                    return NodeFilter.FILTER_REJECT;
+                }
+
+                // Não alterar o ícone da pergunta.
+                if (node.parentElement?.closest('.faq-icon')) {
+                    return NodeFilter.FILTER_REJECT;
+                }
+
+                return text.toLowerCase().includes(term.toLowerCase())
+                    ? NodeFilter.FILTER_ACCEPT
+                    : NodeFilter.FILTER_REJECT;
+            }
+        }
+    );
+
+    while (walker.nextNode()) {
+        textNodes.push(walker.currentNode);
+    }
+
+    const regex = new RegExp(`(${escapeRegExp(term)})`, 'gi');
+
+    textNodes.forEach(textNode => {
+        const text = textNode.nodeValue;
+        const fragment = document.createDocumentFragment();
+
+        let lastIndex = 0;
+        let match;
+
+        regex.lastIndex = 0;
+
+        while ((match = regex.exec(text)) !== null) {
+            fragment.appendChild(
+                document.createTextNode(
+                    text.substring(lastIndex, match.index)
+                )
+            );
+
+            const highlight = document.createElement('span');
+            highlight.className = 'highlight';
+            highlight.textContent = match[0];
+
+            fragment.appendChild(highlight);
+
+            lastIndex = regex.lastIndex;
+        }
+
+        fragment.appendChild(
+            document.createTextNode(text.substring(lastIndex))
+        );
+
+        textNode.parentNode.replaceChild(fragment, textNode);
+    });
+}
+
+// Restaurar o conteúdo original.
+function removeHighlight(item) {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer-content');
+
+    if (question?.dataset.originalHtml) {
+        question.innerHTML = question.dataset.originalHtml;
+    }
+
+    if (answer?.dataset.originalHtml) {
+        answer.innerHTML = answer.dataset.originalHtml;
     }
 }
 
-// Highlight do termo de busca
-function highlightSearchTerm(item, term) {
-    const question = item.querySelector('.faq-question');
-    const answer = item.querySelector('.faq-answer-content');
-    
-    [question, answer].forEach(element => {
-        const originalText = element.getAttribute('data-original') || element.innerHTML;
-        if (!element.getAttribute('data-original')) {
-            element.setAttribute('data-original', originalText);
-        }
-        
-        const regex = new RegExp(`(${escapeRegExp(term)})`, 'gi');
-        const highlightedText = originalText.replace(regex, '<span class="highlight">$1</span>');
-        element.innerHTML = highlightedText;
-    });
-}
-
-// Remover highlight
-function removeHighlight(item) {
-    const elements = item.querySelectorAll('[data-original]');
-    elements.forEach(element => {
-        element.innerHTML = element.getAttribute('data-original');
-    });
-}
-
-// Escape regex
+// Proteger caracteres especiais usados em expressões regulares.
 function escapeRegExp(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -152,6 +248,12 @@ function initCategories() {
             const searchInput = document.getElementById('faq-search');
             if (searchInput) {
                 searchInput.value = '';
+
+                faqItems.forEach(item => {
+                    removeHighlight(item);
+                });
+
+                toggleNoResults(false);
             }
         });
     });

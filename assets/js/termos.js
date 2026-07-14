@@ -9,6 +9,7 @@ function initTermosPage() {
     initScrollAnimations();
     initAcceptanceLogic();
     initSmoothScrolling();
+    adicionarBotaoImpressao();
 }
 
 // Animações de scroll
@@ -37,42 +38,48 @@ function initScrollAnimations() {
 function initAcceptanceLogic() {
     const checkbox = document.getElementById('aceitar-termos');
     const btnAceitar = document.getElementById('btn-aceitar');
-    
-    if (checkbox && btnAceitar) {
-        // Inicialmente desabilitado
-        btnAceitar.disabled = true;
-        
-        checkbox.addEventListener('change', function() {
-            btnAceitar.disabled = !this.checked;
-            
-            if (this.checked) {
-                btnAceitar.style.opacity = '1';
-                btnAceitar.style.cursor = 'pointer';
-            } else {
-                btnAceitar.style.opacity = '0.5';
-                btnAceitar.style.cursor = 'not-allowed';
-            }
-        });
-        
-        btnAceitar.addEventListener('click', function(e) {
-            if (!checkbox.checked) {
-                e.preventDefault();
-                showToast('Você deve aceitar os termos para continuar', 'warning');
-                return false;
-            }
-            
-            // Salvar aceitação no localStorage
-            localStorage.setItem('termos_aceitos', 'true');
-            localStorage.setItem('termos_aceitos_data', new Date().toISOString());
-            
-            showToast('Termos aceitos com sucesso!', 'success');
-            
-            // Redirecionar para inscrição após 1 segundo
-            setTimeout(() => {
-                window.location.href = 'inscricao.php';
-            }, 1000);
-        });
+
+    if (!checkbox || !btnAceitar) {
+        return;
     }
+
+    function atualizarEstadoBotao() {
+        const desabilitado = !checkbox.checked;
+
+        btnAceitar.classList.toggle('is-disabled', desabilitado);
+        btnAceitar.setAttribute(
+            'aria-disabled',
+            desabilitado ? 'true' : 'false'
+        );
+    }
+
+    atualizarEstadoBotao();
+
+    checkbox.addEventListener('change', atualizarEstadoBotao);
+
+    btnAceitar.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        if (!checkbox.checked) {
+            showToast(
+                'Você deve aceitar os termos para continuar',
+                'warning'
+            );
+            return;
+        }
+
+        localStorage.setItem('termos_aceitos', 'true');
+        localStorage.setItem(
+            'termos_aceitos_data',
+            new Date().toISOString()
+        );
+
+        showToast('Termos aceitos com sucesso!', 'success');
+
+        setTimeout(() => {
+            window.location.href = 'inscricao.php';
+        }, 1000);
+    });
 }
 
 // Scroll suave para âncoras
@@ -260,20 +267,27 @@ function imprimirTermos() {
 
 // Adicionar botão de impressão se necessário
 function adicionarBotaoImpressao() {
-    const container = document.querySelector('.termos-container');
-    if (container) {
-        const btnImprimir = document.createElement('button');
-        btnImprimir.innerHTML = '<i class="fas fa-print"></i> Imprimir Termos';
-        btnImprimir.className = 'back-button';
-        btnImprimir.style.marginLeft = '10px';
-        btnImprimir.onclick = imprimirTermos;
-        
-        const backButton = document.querySelector('.back-button');
-        if (backButton) {
-            backButton.parentNode.insertBefore(btnImprimir, backButton.nextSibling);
-        }
-    }
-}
+    const actionsContainer = document.querySelector('.termos-actions');
 
-// Executar após carregamento
-setTimeout(adicionarBotaoImpressao, 1000);
+    if (!actionsContainer) {
+        return;
+    }
+
+    // Evita criar o botão mais de uma vez.
+    if (actionsContainer.querySelector('.btn-imprimir-termos')) {
+        return;
+    }
+
+    const btnImprimir = document.createElement('button');
+
+    btnImprimir.type = 'button';
+    btnImprimir.className = 'back-button btn-imprimir-termos';
+    btnImprimir.innerHTML = `
+        <i class="fas fa-print"></i>
+        <span>Imprimir Termos</span>
+    `;
+
+    btnImprimir.addEventListener('click', imprimirTermos);
+
+    actionsContainer.appendChild(btnImprimir);
+}
